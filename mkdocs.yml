@@ -8,7 +8,9 @@ theme:
   palette:
     primary: black
 plugins:
+  - search
   - blog:
       blog_dir: .
       post_excerpt: required
+      pagination_per_page: 3
       pagination_if_single_page: true
