@@ -1,4 +1,14 @@
 site_name: NARU Devlog
 site_url: https://blog.flynaru.com
+site_author: Chanyoung "Lazuward" Park
+copyright: Copyright &copy; 2024 Lazuward
 theme:
   name: material
+  logo: assets/icon.svg
+  palette:
+    primary: black
+plugins:
+  - blog:
+      blog_dir: .
+      post_excerpt: required
+      pagination_if_single_page: true
