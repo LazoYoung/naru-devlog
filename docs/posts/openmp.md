@@ -1,5 +1,4 @@
 ---
-draft: true 
 date: 2024-06-24 
 categories:
   - Computer Science
@@ -7,9 +6,9 @@ categories:
 
 # OpenMP
 
-## Abstract
-
 OpenMP를 사용하면 병렬 프로그래밍 코드를 빠르고 직관적으로 작성할 수 있다.
+
+<!-- more -->
 
 ## Parallel construct
 
@@ -21,8 +20,6 @@ OpenMP를 사용하면 병렬 프로그래밍 코드를 빠르고 직관적으�
 ```
 
 `parallel` 블록 안에 작성된 코드는 `N` 개의 쓰레드가 동시에 병렬적으로 실행한다. 쓰레드 개수는 실행 환경에 따라 런타임에서 결정되지만 `num_threads(N)` 구문을 추가하면 임의로 정할 수 있다.
-
-<!-- more -->
 
 ## Loop construct
 
