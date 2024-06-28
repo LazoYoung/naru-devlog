@@ -7,6 +7,9 @@ theme:
   logo: assets/icon.svg
   palette:
     primary: black
+  features:
+    - content.code.copy
+    - content.code.annotate
 plugins:
   - search
   - blog:
@@ -14,3 +17,14 @@ plugins:
       post_excerpt: required
       pagination_per_page: 3
       pagination_if_single_page: true
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
