@@ -1,5 +1,4 @@
 ---
-draft: true
 date: 2024-06-27
 categories:
   - Computer Science
