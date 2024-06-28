@@ -11,6 +11,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://blog.flynaru.com/2024/06/27/django/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://blog.flynaru.com/2024/06/24/openmp/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
