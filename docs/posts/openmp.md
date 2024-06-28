@@ -12,7 +12,7 @@ OpenMP를 사용하면 병렬 프로그래밍 코드를 빠르고 직관적으�
 
 ## Parallel construct
 
-```cpp
+``` cpp
 #pragma omp parallel
 {
 	// enclosing block is parallel
@@ -23,7 +23,7 @@ OpenMP를 사용하면 병렬 프로그래밍 코드를 빠르고 직관적으�
 
 ## Loop construct
 
-```cpp
+``` cpp
 #pragma omp parallel num_threads(5)
 #pragma omp for
 for (int i = 0; i < omp_get_num_threads(); ++i) {
@@ -47,14 +47,14 @@ for (int i = 0; i < omp_get_num_threads(); ++i) {
 
 for 블록을 진입하면 OpenMP는 “존재하는 모든 쓰레드가 idle 상태에 있다” 가정하고 반복문 작업을 분배한다. 만일 같은 parallel 블록 안에서 다른 작업을 수행하는 쓰레드가 존재하면 해당 작업이 끝나기 전까지 for 블록 작업이 종료되지 못하고 지체되는 문제가 발생하는데, 이 경우 for construct를 사용하지 않고 작업을 직접 배분하도록 하자.
 
-> Each work-distribution region must be encountered by all threads
-> in the binding thread set or by none at all unless cancellation
-> has been requested for the innermost enclosing parallel region.
-> 
-> - OpenMP Specification chapter 10
+!!! quote
+    Each work-distribution region must be encountered by all threads
+    in the binding thread set or by none at all unless cancellation
+    has been requested for the innermost enclosing parallel region.
+    - OpenMP Specification chapter 10
     
 
-```cpp
+``` cpp
 #pragma omp parallel
 {
 	#pragma omp single nowait

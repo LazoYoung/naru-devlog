@@ -51,7 +51,7 @@ Mutual exclusion(상호 배제)는 특정 자원의 동시 접근을 제한하�
 
 Condition variable(조건 변수)를 활용하여 consumer 패턴 상호배제를 구현한 C 코드
 
-```c
+``` c
 static pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
 static pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
 
