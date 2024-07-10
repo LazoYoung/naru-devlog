@@ -2,32 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://blog.flynaru.com/</loc>
-         <lastmod>2024-06-28</lastmod>
+         <lastmod>2024-07-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://blog.flynaru.com/2024/06/24/concurrent-computing/</loc>
-         <lastmod>2024-06-28</lastmod>
+         <lastmod>2024-07-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://blog.flynaru.com/2024/06/27/django/</loc>
-         <lastmod>2024-06-28</lastmod>
+         <lastmod>2024-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://blog.flynaru.com/2024/07/10/javascript/</loc>
+         <lastmod>2024-07-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://blog.flynaru.com/2024/06/24/openmp/</loc>
-         <lastmod>2024-06-28</lastmod>
+         <lastmod>2024-07-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://blog.flynaru.com/archive/2024/</loc>
-         <lastmod>2024-06-28</lastmod>
+         <lastmod>2024-07-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://blog.flynaru.com/category/computer-science/</loc>
-         <lastmod>2024-06-28</lastmod>
+         <lastmod>2024-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://blog.flynaru.com/page/2/</loc>
+         <lastmod>2024-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://blog.flynaru.com/archive/2024/page/2/</loc>
+         <lastmod>2024-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://blog.flynaru.com/category/computer-science/page/2/</loc>
+         <lastmod>2024-07-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

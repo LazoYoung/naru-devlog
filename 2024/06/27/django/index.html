@@ -16,6 +16,8 @@
         <link rel="prev" href="../../24/concurrent-computing/">
       
       
+        <link rel="next" href="../../../07/10/javascript/">
+      
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
@@ -534,6 +536,34 @@ Auth 인증처럼 자주 쓰이는 기능은 App 형태로 기본 제공되지�
 <li>Actual name is <code>polls:index</code></li>
 <li>Actual name is <code>polls:detail</code></li>
 </ol>
+<h1 id="auth">Auth</h1>
+<p>django는 사용자 인증과 관련된 다양한 기능과 프레임워크를 제공하는데,
+<code>settings.py</code> 파일의 INSTALLED_APPS 목록에 <code>django.contrib.auth</code> 을 추가하면 사용할 수 있다.</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="c1"># ... and other apps</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">]</span>
+</span></code></pre></div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>사용자 인증을 구현하면서 종종 발생하는 문제와 해결방법을 알아보자.</p>
+<h3 id="custom-user">Custom user</h3>
+<p>기본 제공되는 사용자 모델에서 기능을 확장하려면 다음과 같은 절차를 따른다.</p>
+<ol>
+<li>
+<p><code>AbstractBaseUser</code>를 상속하는 커스텀 유저 클래스 생성</p>
+</li>
+<li>
+<p><code>BaseUserManager</code>를 구현하여 유저 클래스 필드에 할당</p>
+</li>
+<li>
+<p><code>settings.py</code> 설정에서 클래스 등록</p>
+</li>
+</ol>
+<h3 id="custom-backend">Custom backend</h3>
+<p>만일 <code>authenticate()</code>로 로그인을 처리할 때 <code>USERNAME_FIELD</code>가 아니라 이메일 같은 다른 ID를 사용하면 올바르게 인증되지 않는다.
+이는 django 디폴트 사용자 인증 백엔드 <code>ModelBackend</code>에서 로그인 ID를 <code>USERNAME_FIELD</code>로 취급하기 때문인데,
+<code>BaseBackend</code>를 상속하는 인증 백엔드 클래스를 직접 구현하여 문제를 해결할 수 있다.
+<a href="https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#writing-an-authentication-backend">자세히 보기</a></p>
 
 
 
