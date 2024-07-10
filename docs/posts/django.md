@@ -106,3 +106,35 @@ urlpatterns = [
 
 1. Actual name is `polls:index`
 2. Actual name is `polls:detail`
+
+
+# Auth
+
+django는 사용자 인증과 관련된 다양한 기능과 프레임워크를 제공하는데,
+`settings.py` 파일의 INSTALLED_APPS 목록에 `django.contrib.auth` 을 추가하면 사용할 수 있다.
+
+```py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    # ... and other apps
+]
+```
+
+## Troubleshooting
+사용자 인증을 구현하면서 종종 발생하는 문제와 해결방법을 알아보자.
+
+### Custom user
+기본 제공되는 사용자 모델에서 기능을 확장하려면 다음과 같은 절차를 따른다.
+
+1. `AbstractBaseUser`를 상속하는 커스텀 유저 클래스 생성
+
+2. `BaseUserManager`를 구현하여 유저 클래스 필드에 할당
+
+3. `settings.py` 설정에서 클래스 등록
+
+
+### Custom backend
+만일 `authenticate()`로 로그인을 처리할 때 `USERNAME_FIELD`가 아니라 이메일 같은 다른 ID를 사용하면 올바르게 인증되지 않는다.
+이는 django 디폴트 사용자 인증 백엔드 `ModelBackend`에서 로그인 ID를 `USERNAME_FIELD`로 취급하기 때문인데,
+`BaseBackend`를 상속하는 인증 백엔드 클래스를 직접 구현하여 문제를 해결할 수 있다.
+[자세히 보기](https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#writing-an-authentication-backend)
