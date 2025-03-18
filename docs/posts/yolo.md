@@ -1,5 +1,5 @@
 ---
-date: 2024-06-24 
+date: 2025-03-18 
 categories:
   - Computer Vision
   - Paper Review
@@ -7,7 +7,7 @@ categories:
 
 # YOLO: You Only Look Once
 
-# 개요
+## 개요
 
 YOLO 는 신경망 기반 “개체 탐지” 처리 속도를 비약적으로 향상시킨 모델이다. 주어진 이미지에 존재하는 모든 개체의 bounding box와 class probability를 한 큐에 생성하도록 설계되었다. 분류 신경망을 이미지에 국소적으로 적용하던 R-CNN 같은 기존 방식이 가지는 복잡성과 비효율성을 YOLO 모델이 해결하면서 실시간 개체 탐지 기술의 지평선을 열었다.
 
@@ -18,7 +18,7 @@ YOLO 는 신경망 기반 “개체 탐지” 처리 속도를 비약적으로 �
 
 ![process.png](../assets/yolo_process.png)
 
-# 모델 출력
+## 모델 출력
 
 이미지가 CNN 층을 통과하면 S x S 격자의 텐서가 생성된다.
 
@@ -58,14 +58,14 @@ $$
   $$
 
 
-# 훈련 전략
+## 훈련 전략
 
 - ImageNet 데이터로 사전학습
 - 사전학습 이후 추가적인 conv, fcn 레이어 도입
 - 사전학습 이후 입력 이미지 크기 2배 조정
 - $\hat{x},\hat{y},\hat{w},\hat{h}$ 정규화 (결과 범위: 0~1)
 
-## 손실 함수
+### 손실 함수
 
 $$
 \begin{align}
@@ -96,24 +96,24 @@ $$
     - $\lambda_{noobj} = 0.5$
         - 개체가 없는 셀의 오차 감쇄계수
 
-# 추론
+## 추론
 
 ![yolo_result.png](../assets/yolo_result.png)
 
 1. 클래스별 신뢰도 계산
 2. NMS 를 수행하여 불필요한 box 제거
 
-# 문제점
+## 문제점
 
 - Localization 정확도 낮음
 - 신뢰도 계산에서 Box 크기를 고려하지 않음
     - 작은 개체 탐지 어려움
 
-# YOLOv2
+## YOLOv2
 
 [[Object Detection] YOLO v2 논문리뷰 및 코드구현(CVPR2017)](https://csm-kr.tistory.com/3)
 
-# YOLOv3
+## YOLOv3
 
 [[Object Detection] YOLO v3 논문리뷰 및 코드구현](https://csm-kr.tistory.com/11)
 
