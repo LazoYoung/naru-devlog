@@ -10,13 +10,13 @@
         <meta name="author" content="Chanyoung &quot;Lazuward&quot; Park">
       
       
-        <link rel="canonical" href="https://blog.flynaru.com/2024/06/24/concurrent-computing/">
+        <link rel="canonical" href="https://blog.flynaru.com/2025/03/18/yolo-you-only-look-once/">
       
       
-        <link rel="prev" href="../openmp/">
+        <link rel="prev" href="../../../../2024/07/10/javascript/">
       
       
-        <link rel="next" href="../../27/django/">
+        <link rel="next" href="../faster-r-cnn-with-rpn/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Concurrent Computing - NARU Devlog</title>
+        <title>YOLO: You Only Look Once - NARU Devlog</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#concurrent-computing" class="md-skip">
+        <a href="#yolo-you-only-look-once" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Concurrent Computing
+              YOLO: You Only Look Once
             
           </span>
         </div>
@@ -480,63 +480,78 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#thread" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Thread
+      개요
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#concurrency" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Concurrency
+      모델 출력
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#race-condition" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Race condition
+      훈련 전략
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="훈련 전략">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      손실 함수
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      추론
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mutual-exclusion" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      Mutual exclusion
+      문제점
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#critical-section" class="md-nav__link">
+  <a href="#yolov2" class="md-nav__link">
     <span class="md-ellipsis">
-      Critical section
+      YOLOv2
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mutex" class="md-nav__link">
+  <a href="#yolov3" class="md-nav__link">
     <span class="md-ellipsis">
-      Mutex
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parallel-computing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parallel Computing
+      YOLOv3
     </span>
   </a>
   
@@ -579,7 +594,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2024-06-24 00:00:00+00:00" class="md-ellipsis">June 24, 2024</time>
+                        <time datetime="2025-03-18 00:00:00+00:00" class="md-ellipsis">March 18, 2025</time>
                       </div>
                     </li>
                     
@@ -590,7 +605,8 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/computer-science/">Computer Science</a></span>
+                              <a href="../../../../category/computer-vision/">Computer Vision</a>, 
+                              <a href="../../../../category/paper-review/">Paper Review</a></span>
                         </div>
                       </li>
                     
@@ -601,7 +617,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              2 min read
+                              3 min read
                             
                           </span>
                         </div>
@@ -625,59 +641,121 @@
 
 
 
-<h1 id="concurrent-computing">Concurrent Computing</h1>
-<p>병행(동시) 컴퓨팅은 여러 연산을 순차적으로 처리하지 않고 동시에 병행 처리하는 방식이다.</p>
+<h1 id="yolo-you-only-look-once">YOLO: You Only Look Once</h1>
+<h2 id="_1">개요</h2>
+<p>YOLO 는 신경망 기반 “개체 탐지” 처리 속도를 비약적으로 향상시킨 모델이다. 주어진 이미지에 존재하는 모든 개체의 bounding box와 class probability를 한 큐에 생성하도록 설계되었다. 분류 신경망을 이미지에 국소적으로 적용하던 R-CNN 같은 기존 방식이 가지는 복잡성과 비효율성을 YOLO 모델이 해결하면서 실시간 개체 탐지 기술의 지평선을 열었다.</p>
+<ul>
+<li>Grid: 이미지를 S x S 격자로 쪼갠 것</li>
+<li>Cell: 격자를 구성하는 단위 셀</li>
+</ul>
 <!-- more -->
 
-<h2 id="thread">Thread</h2>
-<p>독립적인 CPU 시간과 메모리 공간을 점유하는 프로세스와 달리 쓰레드는 하나의 자원을 공유한다.</p>
-<p>Word와 Chrome 프로세스는 서로 동시에 실행되지도 않으며, 메모리를 공유하지도 않는다. 하지만 여러 쓰레드는 heap 메모리를 공유하기 때문에 전역 변수와 코드를 동시에 접근할 수 있다.</p>
-<p>일반적으로 코드는 <code>main()</code> 함수부터 순차적으로 실행되기 때문에 모든 작업이 동기화되어 있다. 하지만 쓰레드를 사용하면 다른 연산과 병행하면서 일을 동시에 처리하는 이점이 생긴다.</p>
-<h2 id="concurrency">Concurrency</h2>
-<p><img alt="Figure demonstrating single-threaded and multi-threaded processes" src="../../../../assets/fig1.png" /></p>
-<p>일을 동시에(concurrently) 처리한다는 것을 이해하기 위해 컴퓨터구조를 들여다보자.</p>
-<p>함수 안에서 지역적 연산 과정과 결과를 담는 <strong>레지스터</strong>, <strong>스택</strong> 메모리는 각 쓰레드에 독립적으로 할당된다. 반면 프로세스 생명주기에 걸쳐 영속적인 <strong>힙 메모리</strong>와 <strong>전역 변수</strong>는 어떤 위치에서든 접근할 수 있어야 되기 때문에 모든 쓰레드가 공유하는 형태이다.</p>
-<h2 id="race-condition">Race condition</h2>
-<blockquote>
-<p>어떤 시스템에 입력되는 복수의 신호를 조작하는 타이밍, 순서에 따라 결과가 영향을 받는다면 <strong>경쟁 상태</strong>에 놓여있다고 본다.
-</p>
-</blockquote>
-<p>병렬 컴퓨팅 관점에서 <strong>경쟁 상태</strong>를 설명하면 여러 쓰레드가 변수를 공유할 때 일정 조건이나 타이밍에서 프로그램이 오작동하거나 예상과 다른 결과를 만들어낼 수 있다. 경쟁 상태를 방지하는 데 사용되는 기법으로 상호배제, 동기화 등이 있다.</p>
-<h2 id="mutual-exclusion">Mutual exclusion</h2>
-<p>Mutual exclusion(상호 배제)는 특정 자원의 동시 접근을 제한하는 기술이다.</p>
-<h2 id="critical-section">Critical section</h2>
-<p>자원에 접근하는 코드는 critical section(임계 영역)으로 설정하고, 아래 조건을 충족해야 한다.</p>
+<p><img alt="arch.png" src="../../../../assets/yolo_arch.png" /></p>
+<p><img alt="process.png" src="../../../../assets/yolo_process.png" /></p>
+<h2 id="_2">모델 출력</h2>
+<p>이미지가 CNN 층을 통과하면 S x S 격자의 텐서가 생성된다.</p>
+<p>격자를 구성하는 cell 은 내부 물체의 경계, 신뢰도, 클래스 정보를 예측한다.</p>
+<ul>
+<li>물체 경계 (bounding box)<ul>
+<li>$(\hat{x},\hat{y})$ : box 중심 좌표</li>
+<li>$(\hat{w},\hat{h})$ : box 폭 및 높이</li>
+<li>$\text{conf}$ : box 예측 신뢰도</li>
+</ul>
+</li>
+<li>신뢰도</li>
+</ul>
+<p>$$
+\begin{align<em>}
+\text{conf} &amp;= \Pr(\text{Object}) \times \text{IOU}^{truth}_{pred}
+\[1em]
+\text{where }\Pr(\text{Object}) &amp;=
+\begin{cases}
+0 &amp;\text{if $(x,y)$ is out of bounds}
+\
+1 &amp;\text{otherwise}
+\end{cases}
+\end{align</em>}
+$$</p>
+<ul>
+<li>클래스 조건부 확률분포</li>
+</ul>
+<p>$$
+  ⁍
+  $$</p>
+<ul>
+<li>최종 출력 텐서</li>
+</ul>
+<p>$$
+  \text{shape} = S \times S \times (5B + C)
+  \
+  \text{where $S$ is grid size, $B$ is box count, $C$ is class count}
+  $$</p>
+<h2 id="_3">훈련 전략</h2>
+<ul>
+<li>ImageNet 데이터로 사전학습</li>
+<li>사전학습 이후 추가적인 conv, fcn 레이어 도입</li>
+<li>사전학습 이후 입력 이미지 크기 2배 조정</li>
+<li>$\hat{x},\hat{y},\hat{w},\hat{h}$ 정규화 (결과 범위: 0~1)</li>
+</ul>
+<h3 id="_4">손실 함수</h3>
+<p>$$
+\begin{align}
+L &amp;= \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}<em>{ij}^{\text{obj}} [(x_i - \hat{x}_i)^2 + (y_i - \hat{y}_i)^2]
+\
+&amp;+ \lambda</em>{coord} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}<em>{ij}^{\text{obj}} [(\sqrt{w_i} - \sqrt{\hat{w_j}})^2 + (\sqrt{h_i} - \sqrt{\hat{h_j}})^2]
+\
+&amp;+ \sum</em>{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}<em>{ij}^{\text{obj}} (C_i - \hat{C_i})^2
+\
+&amp;+ \lambda</em>{noobj} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}<em>{ij}^{\text{noobj}} (C_i - \hat{C_i})^2
+\
+&amp;+ \sum</em>{i=0}^{S^2} \mathbb{1}<em>{i}^{\text{obj}} \sum</em>{c \in \text{classes}} (p_i(c) - \hat{p_i}(c))^2
+\end{align}
+$$</p>
+<ul>
+<li>손실 함수 (Sum of squared error)<ul>
+<li>1번째 항: Box 중심 좌표 오차 최소화</li>
+<li>2번째 항: Box 폭 &amp; 너비 오차 최소화 (절댓값 크기가 영향을 주지 않도록 제곱근 사용)</li>
+<li>3번째 항: 신뢰도 오차 최소화</li>
+<li>4번째 항: 신뢰도 $\hat{C_i} \to 0$ 유도 ($\because \Pr(\text{Object}) = 0$)</li>
+<li>5번째 항: 클래스 분류 오차 최소화</li>
+</ul>
+</li>
+<li>조건부 계수<ul>
+<li>$\mathbf{1}_i^{\text{obj}}$ : i 번째 셀에서 개체가 존재하면 → 1</li>
+<li>$\mathbf{1}_{ij}^{\text{obj}}$ : i 번째 셀에서 최대 IoU 를 가진 box 가 j 번째일 경우 → 1</li>
+</ul>
+</li>
+<li>손실 패널티 (학습 안정화 목적)<ul>
+<li>$\lambda_{coord} = 5$<ul>
+<li>Localization 오차 증폭계수</li>
+</ul>
+</li>
+<li>$\lambda_{noobj} = 0.5$<ul>
+<li>개체가 없는 셀의 오차 감쇄계수</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_5">추론</h2>
+<p><img alt="yolo_result.png" src="../../../../assets/yolo_result.png" /></p>
 <ol>
-<li><strong>상호배제</strong> - 한 프로세스가 점유 중일 때 다른 프로세스는 들어갈 수 없다.</li>
-<li><strong>진행</strong> - 진입하려는 프로세스가 여러 개일 때 누가 먼저 들어갈 지 결정해야 한다.</li>
-<li><strong>한정</strong> <strong>대기</strong> - 임계 영역 앞에서 대기하는 프로세스는 영원히 대기할 수 없다.</li>
+<li>클래스별 신뢰도 계산</li>
+<li>NMS 를 수행하여 불필요한 box 제거</li>
 </ol>
-<p>임계 영역을 구현하는 기법으로 <code>Mutex</code>, <code>Semaphore</code>, <code>Monitor</code>가 있다.</p>
-<h2 id="mutex">Mutex</h2>
-<p>Condition variable(조건 변수)를 활용하여 consumer 패턴 상호배제를 구현한 C 코드</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">static</span><span class="w"> </span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">static</span><span class="w"> </span><span class="n">pthread_cond_t</span><span class="w"> </span><span class="n">cond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_COND_INITIALIZER</span><span class="p">;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">avail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">// Consumer pattern</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">TRUE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">avail</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// Wait for something to consume</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">       </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pthread_cond_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">avail</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// Consume all available units </span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="n">avail</span><span class="o">--</span><span class="p">;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
-</span></code></pre></div>
-<h2 id="parallel-computing">Parallel Computing</h2>
-<p>병렬 컴퓨팅은 다수의 프로세서를 동시에 사용하여 연산하는 방법으로, 느려터진 직렬 연산을 개선하는 부분에서 동시 컴퓨팅과 유사하지만 코어끼리 자원을 공유하지 않고 독립적으로 처리한다는 점에서 근본적인 차이가 있다. 단일 코어에서 복수의 작업(instruction)을 번갈아 처리하는 눈속임이 아니라, 각 작업을 독립적으로 할당하여 말 그대로 동시에 처리하는 것이 병렬 컴퓨팅이다.</p>
-<p><a href="../openmp/">OpenMP</a>를 사용하면 C/C++, Fortran 언어에서 CPU 병렬 프로그래밍을 빠르게 구현할 수 있으며,  NVIDIA GPU 환경에서 텐서 기반 병렬 프로그래밍을 구현하려면 CUDA를 사용해야 한다.</p>
+<h2 id="_6">문제점</h2>
+<ul>
+<li>Localization 정확도 낮음</li>
+<li>신뢰도 계산에서 Box 크기를 고려하지 않음<ul>
+<li>작은 개체 탐지 어려움</li>
+</ul>
+</li>
+</ul>
+<h2 id="yolov2">YOLOv2</h2>
+<p><a href="https://csm-kr.tistory.com/3">[Object Detection] YOLO v2 논문리뷰 및 코드구현(CVPR2017)</a></p>
+<h2 id="yolov3">YOLOv3</h2>
+<p><a href="https://csm-kr.tistory.com/11">[Object Detection] YOLO v3 논문리뷰 및 코드구현</a></p>
+<p><img alt="yolo3_arch.png" src="../../../../assets/yolo3_arch.png" /></p>
 
 
 

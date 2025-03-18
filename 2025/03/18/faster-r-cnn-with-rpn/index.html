@@ -10,13 +10,11 @@
         <meta name="author" content="Chanyoung &quot;Lazuward&quot; Park">
       
       
-        <link rel="canonical" href="https://blog.flynaru.com/2024/06/24/concurrent-computing/">
+        <link rel="canonical" href="https://blog.flynaru.com/2025/03/18/faster-r-cnn-with-rpn/">
       
       
-        <link rel="prev" href="../openmp/">
+        <link rel="prev" href="../yolo-you-only-look-once/">
       
-      
-        <link rel="next" href="../../27/django/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>Concurrent Computing - NARU Devlog</title>
+        <title>Faster R-CNN with RPN - NARU Devlog</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#concurrent-computing" class="md-skip">
+        <a href="#faster-r-cnn-with-rpn" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Concurrent Computing
+              Faster R-CNN with RPN
             
           </span>
         </div>
@@ -480,63 +478,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#thread" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Thread
+      두 단계 방법
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="두 단계 방법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      영역 제안 네트워크
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anchor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anchor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      한 단계 방법
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#concurrency" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Concurrency
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#race-condition" class="md-nav__link">
-    <span class="md-ellipsis">
-      Race condition
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mutual-exclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mutual exclusion
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#critical-section" class="md-nav__link">
-    <span class="md-ellipsis">
-      Critical section
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mutex" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mutex
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parallel-computing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parallel Computing
+      성능 평가
     </span>
   </a>
   
@@ -579,7 +565,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2024-06-24 00:00:00+00:00" class="md-ellipsis">June 24, 2024</time>
+                        <time datetime="2025-03-18 00:00:00+00:00" class="md-ellipsis">March 18, 2025</time>
                       </div>
                     </li>
                     
@@ -590,7 +576,8 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/computer-science/">Computer Science</a></span>
+                              <a href="../../../../category/computer-vision/">Computer Vision</a>, 
+                              <a href="../../../../category/paper-review/">Paper Review</a></span>
                         </div>
                       </li>
                     
@@ -625,59 +612,76 @@
 
 
 
-<h1 id="concurrent-computing">Concurrent Computing</h1>
-<p>병행(동시) 컴퓨팅은 여러 연산을 순차적으로 처리하지 않고 동시에 병행 처리하는 방식이다.</p>
+<h1 id="faster-r-cnn-with-rpn">Faster R-CNN with RPN</h1>
+<h2 id="_1">두 단계 방법</h2>
+<p><img alt="1stage.png" src="../../../../assets/rcnn_2stage.png" /></p>
+<ul>
+<li>기존 R-CNN 모델이 물체를 검출하는 방법<ul>
+<li>후보 영역 생성 → 물체 검출</li>
+<li>두 단계가 독립적이고 메모리 공간을 공유하지 않음 (병렬화 X)</li>
+</ul>
+</li>
+<li><strong>후보 영역 생성</strong><ul>
+<li>물체가 있을 가능성이 높은 영역을 생성하는 단계</li>
+<li>Selective Search 알고리즘 채택<ul>
+<li>슈퍼 화소 분할 → 군집화</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>물체 검출</strong><ol>
+<li>후보 영역을 227 x 227 맵으로 정규화</li>
+<li>합성곱으로 4096차원 특징 벡터 추출</li>
+<li>SVM 으로 물체 부류 확률 예측</li>
+</ol>
+</li>
+</ul>
 <!-- more -->
 
-<h2 id="thread">Thread</h2>
-<p>독립적인 CPU 시간과 메모리 공간을 점유하는 프로세스와 달리 쓰레드는 하나의 자원을 공유한다.</p>
-<p>Word와 Chrome 프로세스는 서로 동시에 실행되지도 않으며, 메모리를 공유하지도 않는다. 하지만 여러 쓰레드는 heap 메모리를 공유하기 때문에 전역 변수와 코드를 동시에 접근할 수 있다.</p>
-<p>일반적으로 코드는 <code>main()</code> 함수부터 순차적으로 실행되기 때문에 모든 작업이 동기화되어 있다. 하지만 쓰레드를 사용하면 다른 연산과 병행하면서 일을 동시에 처리하는 이점이 생긴다.</p>
-<h2 id="concurrency">Concurrency</h2>
-<p><img alt="Figure demonstrating single-threaded and multi-threaded processes" src="../../../../assets/fig1.png" /></p>
-<p>일을 동시에(concurrently) 처리한다는 것을 이해하기 위해 컴퓨터구조를 들여다보자.</p>
-<p>함수 안에서 지역적 연산 과정과 결과를 담는 <strong>레지스터</strong>, <strong>스택</strong> 메모리는 각 쓰레드에 독립적으로 할당된다. 반면 프로세스 생명주기에 걸쳐 영속적인 <strong>힙 메모리</strong>와 <strong>전역 변수</strong>는 어떤 위치에서든 접근할 수 있어야 되기 때문에 모든 쓰레드가 공유하는 형태이다.</p>
-<h2 id="race-condition">Race condition</h2>
+<h3 id="_2">영역 제안 네트워크</h3>
 <blockquote>
-<p>어떤 시스템에 입력되는 복수의 신호를 조작하는 타이밍, 순서에 따라 결과가 영향을 받는다면 <strong>경쟁 상태</strong>에 놓여있다고 본다.
-</p>
+<p>Region Proposal Network, RPN</p>
 </blockquote>
-<p>병렬 컴퓨팅 관점에서 <strong>경쟁 상태</strong>를 설명하면 여러 쓰레드가 변수를 공유할 때 일정 조건이나 타이밍에서 프로그램이 오작동하거나 예상과 다른 결과를 만들어낼 수 있다. 경쟁 상태를 방지하는 데 사용되는 기법으로 상호배제, 동기화 등이 있다.</p>
-<h2 id="mutual-exclusion">Mutual exclusion</h2>
-<p>Mutual exclusion(상호 배제)는 특정 자원의 동시 접근을 제한하는 기술이다.</p>
-<h2 id="critical-section">Critical section</h2>
-<p>자원에 접근하는 코드는 critical section(임계 영역)으로 설정하고, 아래 조건을 충족해야 한다.</p>
-<ol>
-<li><strong>상호배제</strong> - 한 프로세스가 점유 중일 때 다른 프로세스는 들어갈 수 없다.</li>
-<li><strong>진행</strong> - 진입하려는 프로세스가 여러 개일 때 누가 먼저 들어갈 지 결정해야 한다.</li>
-<li><strong>한정</strong> <strong>대기</strong> - 임계 영역 앞에서 대기하는 프로세스는 영원히 대기할 수 없다.</li>
-</ol>
-<p>임계 영역을 구현하는 기법으로 <code>Mutex</code>, <code>Semaphore</code>, <code>Monitor</code>가 있다.</p>
-<h2 id="mutex">Mutex</h2>
-<p>Condition variable(조건 변수)를 활용하여 consumer 패턴 상호배제를 구현한 C 코드</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">static</span><span class="w"> </span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">static</span><span class="w"> </span><span class="n">pthread_cond_t</span><span class="w"> </span><span class="n">cond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_COND_INITIALIZER</span><span class="p">;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">avail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">// Consumer pattern</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">TRUE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">avail</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// Wait for something to consume</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">       </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pthread_cond_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">avail</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// Consume all available units </span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="n">avail</span><span class="o">--</span><span class="p">;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
-</span></code></pre></div>
-<h2 id="parallel-computing">Parallel Computing</h2>
-<p>병렬 컴퓨팅은 다수의 프로세서를 동시에 사용하여 연산하는 방법으로, 느려터진 직렬 연산을 개선하는 부분에서 동시 컴퓨팅과 유사하지만 코어끼리 자원을 공유하지 않고 독립적으로 처리한다는 점에서 근본적인 차이가 있다. 단일 코어에서 복수의 작업(instruction)을 번갈아 처리하는 눈속임이 아니라, 각 작업을 독립적으로 할당하여 말 그대로 동시에 처리하는 것이 병렬 컴퓨팅이다.</p>
-<p><a href="../openmp/">OpenMP</a>를 사용하면 C/C++, Fortran 언어에서 CPU 병렬 프로그래밍을 빠르게 구현할 수 있으며,  NVIDIA GPU 환경에서 텐서 기반 병렬 프로그래밍을 구현하려면 CUDA를 사용해야 한다.</p>
+<ul>
+<li>후보 영역을 생성하는 새롭고 경량화된 방법</li>
+<li>합성곱으로 N차원 특징 벡터 추출<ul>
+<li>ZF 특징맵 → N=256</li>
+<li>VGG 특징맵 → N=512</li>
+</ul>
+</li>
+<li>추출된 특징을 2개의 FC layer 에 각각 입력으로 전달<ul>
+<li>분류 계층: Objectness(객체 식별 여부) 예측</li>
+<li>회귀 계층: Anchor box 형태를 조절하는 파라미터 {x, y, h, w}</li>
+</ul>
+</li>
+</ul>
+<h3 id="anchor">Anchor</h3>
+<p><img alt="ZF 를 사용한다고 가정할 때 추출된 특징 벡터는 256차원" src="../../../../assets/faster_rcnn_anchor.png" /></p>
+<p>ZF 를 사용한다고 가정할 때 추출된 특징 벡터는 256차원</p>
+<ul>
+<li>다양한 크기와 종횡비를 가진 사각형 박스</li>
+<li>미리 정의된 k=9 가지 형태를 모두 사용</li>
+<li>Bounding box 를 예측하는 데 사용됨 (For reference)</li>
+</ul>
+<h2 id="_3">한 단계 방법</h2>
+<p><img alt="1stage.png" src="../../../../assets/rcnn_1stage.png" /></p>
+<ul>
+<li>Selective Search 알고리즘을 RPN 으로 대체하여</li>
+<li>영역 제안 → 검출까지 전 단계를 단일 신경망으로 통합</li>
+<li>검출 성능과 속도를 획기적으로 개선</li>
+</ul>
+<h2 id="_4">성능 평가</h2>
+<p><img alt="PASCAL VOC 2012 테스트 데이터 예측 성능. (SS = Selective Search)" src="../../../../assets/faster_rcnn_metrics1.png" /></p>
+<p>PASCAL VOC 2012 테스트 데이터 예측 성능. (SS = Selective Search)</p>
+<p><img alt="K40 GPU 타이밍으로 측정한 검출 속도" src="../../../../assets/faster_rcnn_metrics2.png" /></p>
+<p>K40 GPU 타이밍으로 측정한 검출 속도</p>
+<ul>
+<li>RPN 도입 후<ul>
+<li>mAP 2%p 증가 → 성능 소폭 개선</li>
+<li>지연시간 10배 감소 → 속도 개선</li>
+</ul>
+</li>
+</ul>
 
 
 
