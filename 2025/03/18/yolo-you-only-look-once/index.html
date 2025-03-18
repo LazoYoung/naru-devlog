@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -657,25 +659,25 @@
 <p>격자를 구성하는 cell 은 내부 물체의 경계, 신뢰도, 클래스 정보를 예측한다.</p>
 <ul>
 <li>물체 경계 (bounding box)<ul>
-<li>$(\hat{x},\hat{y})$ : box 중심 좌표</li>
-<li>$(\hat{w},\hat{h})$ : box 폭 및 높이</li>
-<li>$\text{conf}$ : box 예측 신뢰도</li>
+<li><span class="arithmatex">\((\hat{x},\hat{y})\)</span> : box 중심 좌표</li>
+<li><span class="arithmatex">\((\hat{w},\hat{h})\)</span> : box 폭 및 높이</li>
+<li><span class="arithmatex">\(\text{conf}\)</span> : box 예측 신뢰도</li>
 </ul>
 </li>
 <li>신뢰도</li>
 </ul>
-<p>$$
-\begin{align<em>}
+<div class="arithmatex">\[
+\begin{align*}
 \text{conf} &amp;= \Pr(\text{Object}) \times \text{IOU}^{truth}_{pred}
-\[1em]
+\\[1em]
 \text{where }\Pr(\text{Object}) &amp;=
 \begin{cases}
 0 &amp;\text{if $(x,y)$ is out of bounds}
-\
+\\
 1 &amp;\text{otherwise}
 \end{cases}
-\end{align</em>}
-$$</p>
+\end{align*}
+\]</div>
 <ul>
 <li>클래스 조건부 확률분포</li>
 </ul>
@@ -688,49 +690,49 @@ $$</p>
 <p>$$
   \text{shape} = S \times S \times (5B + C)
   \
-  \text{where $S$ is grid size, $B$ is box count, $C$ is class count}
+  \text{where <span class="arithmatex">\(S\)</span> is grid size, <span class="arithmatex">\(B\)</span> is box count, <span class="arithmatex">\(C\)</span> is class count}
   $$</p>
 <h2 id="_3">훈련 전략</h2>
 <ul>
 <li>ImageNet 데이터로 사전학습</li>
 <li>사전학습 이후 추가적인 conv, fcn 레이어 도입</li>
 <li>사전학습 이후 입력 이미지 크기 2배 조정</li>
-<li>$\hat{x},\hat{y},\hat{w},\hat{h}$ 정규화 (결과 범위: 0~1)</li>
+<li><span class="arithmatex">\(\hat{x},\hat{y},\hat{w},\hat{h}\)</span> 정규화 (결과 범위: 0~1)</li>
 </ul>
 <h3 id="_4">손실 함수</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{align}
-L &amp;= \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}<em>{ij}^{\text{obj}} [(x_i - \hat{x}_i)^2 + (y_i - \hat{y}_i)^2]
-\
-&amp;+ \lambda</em>{coord} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}<em>{ij}^{\text{obj}} [(\sqrt{w_i} - \sqrt{\hat{w_j}})^2 + (\sqrt{h_i} - \sqrt{\hat{h_j}})^2]
-\
-&amp;+ \sum</em>{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}<em>{ij}^{\text{obj}} (C_i - \hat{C_i})^2
-\
-&amp;+ \lambda</em>{noobj} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}<em>{ij}^{\text{noobj}} (C_i - \hat{C_i})^2
-\
-&amp;+ \sum</em>{i=0}^{S^2} \mathbb{1}<em>{i}^{\text{obj}} \sum</em>{c \in \text{classes}} (p_i(c) - \hat{p_i}(c))^2
+L &amp;= \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{obj}} [(x_i - \hat{x}_i)^2 + (y_i - \hat{y}_i)^2]
+\\
+&amp;+ \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{obj}} [(\sqrt{w_i} - \sqrt{\hat{w_j}})^2 + (\sqrt{h_i} - \sqrt{\hat{h_j}})^2]
+\\
+&amp;+ \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{obj}} (C_i - \hat{C_i})^2
+\\
+&amp;+ \lambda_{noobj} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{noobj}} (C_i - \hat{C_i})^2
+\\
+&amp;+ \sum_{i=0}^{S^2} \mathbb{1}_{i}^{\text{obj}} \sum_{c \in \text{classes}} (p_i(c) - \hat{p_i}(c))^2
 \end{align}
-$$</p>
+\]</div>
 <ul>
 <li>손실 함수 (Sum of squared error)<ul>
 <li>1번째 항: Box 중심 좌표 오차 최소화</li>
 <li>2번째 항: Box 폭 &amp; 너비 오차 최소화 (절댓값 크기가 영향을 주지 않도록 제곱근 사용)</li>
 <li>3번째 항: 신뢰도 오차 최소화</li>
-<li>4번째 항: 신뢰도 $\hat{C_i} \to 0$ 유도 ($\because \Pr(\text{Object}) = 0$)</li>
+<li>4번째 항: 신뢰도 <span class="arithmatex">\(\hat{C_i} \to 0\)</span> 유도 (<span class="arithmatex">\(\because \Pr(\text{Object}) = 0\)</span>)</li>
 <li>5번째 항: 클래스 분류 오차 최소화</li>
 </ul>
 </li>
 <li>조건부 계수<ul>
-<li>$\mathbf{1}_i^{\text{obj}}$ : i 번째 셀에서 개체가 존재하면 → 1</li>
-<li>$\mathbf{1}_{ij}^{\text{obj}}$ : i 번째 셀에서 최대 IoU 를 가진 box 가 j 번째일 경우 → 1</li>
+<li><span class="arithmatex">\(\mathbf{1}_i^{\text{obj}}\)</span> : i 번째 셀에서 개체가 존재하면 → 1</li>
+<li><span class="arithmatex">\(\mathbf{1}_{ij}^{\text{obj}}\)</span> : i 번째 셀에서 최대 IoU 를 가진 box 가 j 번째일 경우 → 1</li>
 </ul>
 </li>
 <li>손실 패널티 (학습 안정화 목적)<ul>
-<li>$\lambda_{coord} = 5$<ul>
+<li><span class="arithmatex">\(\lambda_{coord} = 5\)</span><ul>
 <li>Localization 오차 증폭계수</li>
 </ul>
 </li>
-<li>$\lambda_{noobj} = 0.5$<ul>
+<li><span class="arithmatex">\(\lambda_{noobj} = 0.5\)</span><ul>
 <li>개체가 없는 셀의 오차 감쇄계수</li>
 </ul>
 </li>
@@ -815,6 +817,12 @@ $$</p>
     
     
       <script src="../../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>
