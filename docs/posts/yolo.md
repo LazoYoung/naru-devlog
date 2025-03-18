@@ -14,6 +14,8 @@ YOLO 는 신경망 기반 “개체 탐지” 처리 속도를 비약적으로 �
 - Grid: 이미지를 S x S 격자로 쪼갠 것
 - Cell: 격자를 구성하는 단위 셀
 
+<!-- more -->
+
 ![arch.png](../assets/yolo_arch.png)
 
 ![process.png](../assets/yolo_process.png)

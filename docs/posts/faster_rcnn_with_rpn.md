@@ -23,6 +23,8 @@ categories:
     2. 합성곱으로 4096차원 특징 벡터 추출
     3. SVM 으로 물체 부류 확률 예측
 
+<!-- more -->
+
 ### 영역 제안 네트워크
 
 > Region Proposal Network, RPN
