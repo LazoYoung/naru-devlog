@@ -47,17 +47,17 @@ $$
 
 - 클래스 조건부 확률분포
 
-  $$
-  ⁍
-  $$
+$$
+\Pr(\text{Class}_i|\text{Object})
+$$
 
 - 최종 출력 텐서
 
-  $$
-  \text{shape} = S \times S \times (5B + C)
-  \\
-  \text{where $S$ is grid size, $B$ is box count, $C$ is class count}
-  $$
+$$
+\text{shape} = S \times S \times (5B + C)
+\\
+\text{where $S$ is grid size, $B$ is box count, $C$ is class count}
+$$
 
 
 ## 훈련 전략
