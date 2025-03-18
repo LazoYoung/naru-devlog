@@ -1,7 +1,7 @@
 ---
 date: 2024-06-27
 categories:
-  - Computer Science
+  - Web
 ---
 
 ![django logo](../assets/django.png)

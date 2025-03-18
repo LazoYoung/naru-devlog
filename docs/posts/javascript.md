@@ -1,7 +1,7 @@
 ---
 date: 2024-07-10
 categories:
-  - Computer Science
+  - Web
 ---
 
 # Javascript

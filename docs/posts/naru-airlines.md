@@ -2,7 +2,7 @@
 draft: true
 date: 2024-06-30
 categories:
-  - Production
+  - Project
 ---
 
 ![Banner](../assets/naru-airlines-banner.svg)
