@@ -10,13 +10,13 @@
         <meta name="author" content="Chanyoung &quot;Lazuward&quot; Park">
       
       
-        <link rel="canonical" href="https://blog.flynaru.com/2025/03/18/yolo-you-only-look-once/">
+        <link rel="canonical" href="https://blog.flynaru.com/2025/09/26/%EB%A9%80%ED%8B%B0%EC%BA%90%EC%8A%A4%ED%8A%B8-dns/">
       
       
-        <link rel="prev" href="../../../../2024/07/10/javascript/">
+        <link rel="prev" href="../../../07/23/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EA%B0%9C%EB%B0%9C/">
       
       
-        <link rel="next" href="../faster-r-cnn-with-rpn/">
+        <link rel="next" href="../../27/kubernetes-%EC%84%A4%EC%B9%98/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>YOLO: You Only Look Once - NARU Devlog</title>
+        <title>멀티캐스트 DNS - NARU Devlog</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#yolo-you-only-look-once" class="md-skip">
+        <a href="#dns" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              YOLO: You Only Look Once
+              멀티캐스트 DNS
             
           </span>
         </div>
@@ -548,35 +548,35 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      개요
+      동작 원리
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      모델 출력
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      훈련 전략
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="훈련 전략">
+    <nav class="md-nav" aria-label="동작 원리">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#1-query" class="md-nav__link">
     <span class="md-ellipsis">
-      손실 함수
+      1. 질의 전송 (Query)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 응답 (Response)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 캐싱 (Caching)
     </span>
   </a>
   
@@ -588,36 +588,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#mdns" class="md-nav__link">
     <span class="md-ellipsis">
-      추론
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      문제점
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#yolov2" class="md-nav__link">
-    <span class="md-ellipsis">
-      YOLOv2
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#yolov3" class="md-nav__link">
-    <span class="md-ellipsis">
-      YOLOv3
+      mDNS 설정하기
     </span>
   </a>
   
@@ -660,7 +633,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-03-18 00:00:00+00:00" class="md-ellipsis">March 18, 2025</time>
+                        <time datetime="2025-09-26 00:00:00+00:00" class="md-ellipsis">September 26, 2025</time>
                       </div>
                     </li>
                     
@@ -671,8 +644,8 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/computer-vision/">Computer Vision</a>, 
-                              <a href="../../../../category/paper-review/">Paper Review</a></span>
+                              <a href="../../../../category/computer-science/">Computer Science</a>, 
+                              <a href="../../../../category/network/">Network</a></span>
                         </div>
                       </li>
                     
@@ -683,7 +656,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              3 min read
+                              2 min read
                             
                           </span>
                         </div>
@@ -707,121 +680,57 @@
 
 
 
-<h1 id="yolo-you-only-look-once">YOLO: You Only Look Once</h1>
-<h2 id="_1">개요</h2>
-<p>YOLO 는 신경망 기반 “개체 탐지” 처리 속도를 비약적으로 향상시킨 모델이다. 주어진 이미지에 존재하는 모든 개체의 bounding box와 class probability를 한 큐에 생성하도록 설계되었다. 분류 신경망을 이미지에 국소적으로 적용하던 R-CNN 같은 기존 방식이 가지는 복잡성과 비효율성을 YOLO 모델이 해결하면서 실시간 개체 탐지 기술의 지평선을 열었다.</p>
-<ul>
-<li>Grid: 이미지를 S x S 격자로 쪼갠 것</li>
-<li>Cell: 격자를 구성하는 단위 셀</li>
-</ul>
+<h1 id="dns">멀티캐스트 DNS</h1>
+<p><strong>멀티캐스트 DNS</strong>는 중앙 DNS 서버 없이 로컬 네트워크 환경에서 호스트 이름을 IP 주소로 확인하는 프로토콜이다.</p>
+<p>일반적인 DNS 서버는 FQDN 을 IP 주소로 변환하지만, 멀티캐스트 DNS는 네트워크 안에서 호스트 이름을 IP 주소로 변환한다.</p>
+<p>IETF RFC 6762 로 정의된 기술 규격으로, 별도의 설정 없이 네트워크 장치 간에 호스트 이름을 인식할 수 있다.</p>
+<p>기본적으로 로컬 Link 전용 도메인인 <strong>.local</strong> 로 끝나는 호스트 이름만 확인된다.</p>
 <!-- more -->
 
-<p><img alt="arch.png" src="../../../../assets/yolo_arch.png" /></p>
-<p><img alt="process.png" src="../../../../assets/yolo_process.png" /></p>
-<h2 id="_2">모델 출력</h2>
-<p>이미지가 CNN 층을 통과하면 S x S 격자의 텐서가 생성된다.</p>
-<p>격자를 구성하는 cell 은 내부 물체의 경계, 신뢰도, 클래스 정보를 예측한다.</p>
-<ul>
-<li>물체 경계 (bounding box)<ul>
-<li><span class="arithmatex">\((\hat{x},\hat{y})\)</span> : box 중심 좌표</li>
-<li><span class="arithmatex">\((\hat{w},\hat{h})\)</span> : box 폭 및 높이</li>
-<li><span class="arithmatex">\(\text{conf}\)</span> : box 예측 신뢰도</li>
-</ul>
-</li>
-<li>신뢰도</li>
-</ul>
-<div class="arithmatex">\[
-\begin{align*}
-\text{conf} &amp;= \Pr(\text{Object}) \times \text{IOU}^{truth}_{pred}
-\\[1em]
-\text{where }\Pr(\text{Object}) &amp;=
-\begin{cases}
-0 &amp;\text{if $(x,y)$ is out of bounds}
-\\
-1 &amp;\text{otherwise}
-\end{cases}
-\end{align*}
-\]</div>
-<ul>
-<li>클래스 조건부 확률분포</li>
-</ul>
-<div class="arithmatex">\[
-\Pr(\text{Class}_i|\text{Object})
-\]</div>
-<ul>
-<li>최종 출력 텐서</li>
-</ul>
-<div class="arithmatex">\[
-\text{shape} = S \times S \times (5B + C)
-\\
-\text{where $S$ is grid size, $B$ is box count, $C$ is class count}
-\]</div>
-<h2 id="_3">훈련 전략</h2>
-<ul>
-<li>ImageNet 데이터로 사전학습</li>
-<li>사전학습 이후 추가적인 conv, fcn 레이어 도입</li>
-<li>사전학습 이후 입력 이미지 크기 2배 조정</li>
-<li><span class="arithmatex">\(\hat{x},\hat{y},\hat{w},\hat{h}\)</span> 정규화 (결과 범위: 0~1)</li>
-</ul>
-<h3 id="_4">손실 함수</h3>
-<div class="arithmatex">\[
-\begin{align}
-L &amp;= \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{obj}} [(x_i - \hat{x}_i)^2 + (y_i - \hat{y}_i)^2]
-\\
-&amp;+ \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{obj}} [(\sqrt{w_i} - \sqrt{\hat{w_j}})^2 + (\sqrt{h_i} - \sqrt{\hat{h_j}})^2]
-\\
-&amp;+ \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{obj}} (C_i - \hat{C_i})^2
-\\
-&amp;+ \lambda_{noobj} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{noobj}} (C_i - \hat{C_i})^2
-\\
-&amp;+ \sum_{i=0}^{S^2} \mathbb{1}_{i}^{\text{obj}} \sum_{c \in \text{classes}} (p_i(c) - \hat{p_i}(c))^2
-\end{align}
-\]</div>
-<ul>
-<li>손실 함수 (Sum of squared error)<ul>
-<li>1번째 항: Box 중심 좌표 오차 최소화</li>
-<li>2번째 항: Box 폭 &amp; 너비 오차 최소화 (절댓값 크기가 영향을 주지 않도록 제곱근 사용)</li>
-<li>3번째 항: 신뢰도 오차 최소화</li>
-<li>4번째 항: 신뢰도 <span class="arithmatex">\(\hat{C_i} \to 0\)</span> 유도 (<span class="arithmatex">\(\because \Pr(\text{Object}) = 0\)</span>)</li>
-<li>5번째 항: 클래스 분류 오차 최소화</li>
-</ul>
-</li>
-<li>조건부 계수<ul>
-<li><span class="arithmatex">\(\mathbf{1}_i^{\text{obj}}\)</span> : i 번째 셀에서 개체가 존재하면 → 1</li>
-<li><span class="arithmatex">\(\mathbf{1}_{ij}^{\text{obj}}\)</span> : i 번째 셀에서 최대 IoU 를 가진 box 가 j 번째일 경우 → 1</li>
-</ul>
-</li>
-<li>손실 패널티 (학습 안정화 목적)<ul>
-<li><span class="arithmatex">\(\lambda_{coord} = 5\)</span><ul>
-<li>Localization 오차 증폭계수</li>
-</ul>
-</li>
-<li><span class="arithmatex">\(\lambda_{noobj} = 0.5\)</span><ul>
-<li>개체가 없는 셀의 오차 감쇄계수</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="_5">추론</h2>
-<p><img alt="yolo_result.png" src="../../../../assets/yolo_result.png" /></p>
-<ol>
-<li>클래스별 신뢰도 계산</li>
-<li>NMS 를 수행하여 불필요한 box 제거</li>
-</ol>
-<h2 id="_6">문제점</h2>
-<ul>
-<li>Localization 정확도 낮음</li>
-<li>신뢰도 계산에서 Box 크기를 고려하지 않음<ul>
-<li>작은 개체 탐지 어려움</li>
-</ul>
-</li>
-</ul>
-<h2 id="yolov2">YOLOv2</h2>
-<p><a href="https://csm-kr.tistory.com/3">[Object Detection] YOLO v2 논문리뷰 및 코드구현(CVPR2017)</a></p>
-<h2 id="yolov3">YOLOv3</h2>
-<p><a href="https://csm-kr.tistory.com/11">[Object Detection] YOLO v3 논문리뷰 및 코드구현</a></p>
-<p><img alt="yolo3_arch.png" src="../../../../assets/yolo3_arch.png" /></p>
+<h2 id="_1">동작 원리</h2>
+<h3 id="1-query">1. 질의 전송 (Query)</h3>
+<p>IP 주소를 확인하려는 장치(클라이언트)는 원하는 호스트 이름(예: printer.local)에 대한 mDNS 질의 패킷을 보낸다.</p>
+<p>이 질의는 로컬 서브넷 내에서 mDNS 가 활성화된 모든 장치가 수신한다.</p>
+<h3 id="2-response">2. 응답 (Response)</h3>
+<p>질의를 수신한 장치들은 질의된 호스트 이름을 확인한다.</p>
+<p>해당 이름을 소유한 장치는 자신의 IP 주소를 포함하는 mDNS 응답 패킷을 작성하고,</p>
+<p>다시 멀티캐스트로 전송되어 서브넷 내의 모든 장치에게 자신의 이름-IP 주소 매핑 정보를 알린다.</p>
+<h3 id="3-caching">3. 캐싱 (Caching)</h3>
+<p>응답 패킷을 수신한 모든 mDNS 지원 장치들은 해당 이름-IP 매핑 정보를 자체 mDNS 캐시에 저장한다.</p>
+<p>이후 같은 호스트 이름에 대한 질의가 발생하면 캐시된 정보를 사용하여 네트워크 트래픽을 최소화한다.</p>
+<h2 id="mdns">mDNS 설정하기</h2>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># /etc/systemd/resolved.conf</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">[Resolve]</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">MulticastDNS</span><span class="o">=</span><span class="err">yes</span>
+</span></code></pre></div>
+<p>리눅스에서 DNS resolution 기능은 <code>systemd-resolved</code> 서비스를 통해 제공된다.</p>
+<p>설정 파일은 보통 <code>/etc/systemd/resolved.conf</code> 경로에 위치하는데, 위와 같이 MulticastDNS 를 활성화해야 한다.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-resolved.service
+</span></code></pre></div>
+<p>설정 파일을 저장했다면, 서비스를 재시작하여 변경사항을 적용하자.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>resolvectl<span class="w"> </span>mdns
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Global:<span class="w"> </span>yes
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Link<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>ens1<span class="o">)</span>:<span class="w"> </span>no
+</span></code></pre></div>
+<p>만일 위와 같이 mDNS 가 활성화되지 않은 링크가 존재한다면, <code>resolvectl mdns</code> 명령을 사용해서 활성화해야 한다.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>resolvectl<span class="w"> </span>mdns<span class="w"> </span>ens1<span class="w"> </span>yes
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>$<span class="w"> </span>resolvectl<span class="w"> </span>mdns
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Global:<span class="w"> </span>yes
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Link<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>ens1<span class="o">)</span>:<span class="w"> </span>yes
+</span></code></pre></div>
+<p>이제 같은 네트워크에 있는 다른 장치들도 같은 방법으로 mDNS 를 설정하면 된다.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>ping<span class="w"> </span>test-node.local
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>PING<span class="w"> </span>test-node.local<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.1.XX<span class="o">)</span><span class="w"> </span><span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span><span class="w"> </span>bytes<span class="w"> </span>of<span class="w"> </span>data.
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>test-node.local<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.1.XX<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">0</span>.763<span class="w"> </span>ms
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>test-node.local<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.1.XX<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">0</span>.765<span class="w"> </span>ms
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>test-node.local<span class="w"> </span><span class="o">(</span><span class="m">192</span>.168.1.XX<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">64</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">0</span>.687<span class="w"> </span>ms
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>^C
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>---<span class="w"> </span>test-node.local<span class="w"> </span>ping<span class="w"> </span>statistics<span class="w"> </span>---
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="m">3</span><span class="w"> </span>packets<span class="w"> </span>transmitted,<span class="w"> </span><span class="m">3</span><span class="w"> </span>received,<span class="w"> </span><span class="m">0</span>%<span class="w"> </span>packet<span class="w"> </span>loss,<span class="w"> </span><span class="nb">time</span><span class="w"> </span>2016ms
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>rtt<span class="w"> </span>min/avg/max/mdev<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.687/0.738/0.765/0.036<span class="w"> </span>ms
+</span></code></pre></div>
+<p>다른 장치(컴퓨터)의 호스트 이름이 인식되는지 확인해보자. 위와 같이 ping 명령으로 호스트가 인식되면 성공이다.</p>
 
 
 

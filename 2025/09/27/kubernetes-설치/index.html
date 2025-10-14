@@ -10,13 +10,11 @@
         <meta name="author" content="Chanyoung &quot;Lazuward&quot; Park">
       
       
-        <link rel="canonical" href="https://blog.flynaru.com/2025/03/18/yolo-you-only-look-once/">
+        <link rel="canonical" href="https://blog.flynaru.com/2025/09/27/kubernetes-%EC%84%A4%EC%B9%98/">
       
       
-        <link rel="prev" href="../../../../2024/07/10/javascript/">
+        <link rel="prev" href="../../26/%EB%A9%80%ED%8B%B0%EC%BA%90%EC%8A%A4%ED%8A%B8-dns/">
       
-      
-        <link rel="next" href="../faster-r-cnn-with-rpn/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>YOLO: You Only Look Once - NARU Devlog</title>
+        <title>Kubernetes 설치 - NARU Devlog</title>
       
     
     
@@ -76,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#yolo-you-only-look-once" class="md-skip">
+        <a href="#kubernetes" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              YOLO: You Only Look Once
+              Kubernetes 설치
             
           </span>
         </div>
@@ -548,35 +546,53 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      개요
+      사전 준비단계
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="사전 준비단계">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Engine 설치
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      모델 출력
+      통신모듈 설정
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      훈련 전략
+      방화벽 설정
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="훈련 전략">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      손실 함수
+      스왑 메모리 해제
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubeadm-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      kubeadm CLI 설치
     </span>
   </a>
   
@@ -590,36 +606,57 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      추론
+      클러스터 생성하기
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="클러스터 생성하기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#control-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control plane 생성
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#cni" class="md-nav__link">
+    <span class="md-ellipsis">
+      CNI 플러그인 설치
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CNI 플러그인 설치">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      문제점
+      주의사항
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#yolov2" class="md-nav__link">
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-node" class="md-nav__link">
     <span class="md-ellipsis">
-      YOLOv2
+      Worker node 등록
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#yolov3" class="md-nav__link">
-    <span class="md-ellipsis">
-      YOLOv3
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -660,7 +697,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-03-18 00:00:00+00:00" class="md-ellipsis">March 18, 2025</time>
+                        <time datetime="2025-09-27 00:00:00+00:00" class="md-ellipsis">September 27, 2025</time>
                       </div>
                     </li>
                     
@@ -671,8 +708,8 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/computer-vision/">Computer Vision</a>, 
-                              <a href="../../../../category/paper-review/">Paper Review</a></span>
+                              <a href="../../../../category/computer-science/">Computer Science</a>, 
+                              <a href="../../../../category/devops/">DevOps</a></span>
                         </div>
                       </li>
                     
@@ -707,121 +744,117 @@
 
 
 
-<h1 id="yolo-you-only-look-once">YOLO: You Only Look Once</h1>
-<h2 id="_1">개요</h2>
-<p>YOLO 는 신경망 기반 “개체 탐지” 처리 속도를 비약적으로 향상시킨 모델이다. 주어진 이미지에 존재하는 모든 개체의 bounding box와 class probability를 한 큐에 생성하도록 설계되었다. 분류 신경망을 이미지에 국소적으로 적용하던 R-CNN 같은 기존 방식이 가지는 복잡성과 비효율성을 YOLO 모델이 해결하면서 실시간 개체 탐지 기술의 지평선을 열었다.</p>
-<ul>
-<li>Grid: 이미지를 S x S 격자로 쪼갠 것</li>
-<li>Cell: 격자를 구성하는 단위 셀</li>
-</ul>
+<h1 id="kubernetes">Kubernetes 설치</h1>
+<h2 id="_1">사전 준비단계</h2>
+<p>사전 준비에 해당되는 내용들은 master node, worker node 에 모두 적용된다.</p>
+<p>쿠버네티스(K8s) 작업을 수행하는 모든 노드에 접속해서 빠짐없이 실행해야 한다!</p>
+<h3 id="docker-engine">Docker Engine 설치</h3>
+<p>먼저 <a href="https://docs.docker.com/engine/install/">Docker 공식문서</a>를 참조하여 도커를 설치한다.</p>
+<p>도커가 설치되면 컨테이너 런타임 <code>Containerd</code> 도 자동으로 설치된다. K8s 가 컨테이너를 관리할 때 이것이 사용된다.</p>
 <!-- more -->
 
-<p><img alt="arch.png" src="../../../../assets/yolo_arch.png" /></p>
-<p><img alt="process.png" src="../../../../assets/yolo_process.png" /></p>
-<h2 id="_2">모델 출력</h2>
-<p>이미지가 CNN 층을 통과하면 S x S 격자의 텐서가 생성된다.</p>
-<p>격자를 구성하는 cell 은 내부 물체의 경계, 신뢰도, 클래스 정보를 예측한다.</p>
-<ul>
-<li>물체 경계 (bounding box)<ul>
-<li><span class="arithmatex">\((\hat{x},\hat{y})\)</span> : box 중심 좌표</li>
-<li><span class="arithmatex">\((\hat{w},\hat{h})\)</span> : box 폭 및 높이</li>
-<li><span class="arithmatex">\(\text{conf}\)</span> : box 예측 신뢰도</li>
-</ul>
-</li>
-<li>신뢰도</li>
-</ul>
-<div class="arithmatex">\[
-\begin{align*}
-\text{conf} &amp;= \Pr(\text{Object}) \times \text{IOU}^{truth}_{pred}
-\\[1em]
-\text{where }\Pr(\text{Object}) &amp;=
-\begin{cases}
-0 &amp;\text{if $(x,y)$ is out of bounds}
-\\
-1 &amp;\text{otherwise}
-\end{cases}
-\end{align*}
-\]</div>
-<ul>
-<li>클래스 조건부 확률분포</li>
-</ul>
-<div class="arithmatex">\[
-\Pr(\text{Class}_i|\text{Object})
-\]</div>
-<ul>
-<li>최종 출력 텐서</li>
-</ul>
-<div class="arithmatex">\[
-\text{shape} = S \times S \times (5B + C)
-\\
-\text{where $S$ is grid size, $B$ is box count, $C$ is class count}
-\]</div>
-<h2 id="_3">훈련 전략</h2>
-<ul>
-<li>ImageNet 데이터로 사전학습</li>
-<li>사전학습 이후 추가적인 conv, fcn 레이어 도입</li>
-<li>사전학습 이후 입력 이미지 크기 2배 조정</li>
-<li><span class="arithmatex">\(\hat{x},\hat{y},\hat{w},\hat{h}\)</span> 정규화 (결과 범위: 0~1)</li>
-</ul>
-<h3 id="_4">손실 함수</h3>
-<div class="arithmatex">\[
-\begin{align}
-L &amp;= \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{obj}} [(x_i - \hat{x}_i)^2 + (y_i - \hat{y}_i)^2]
-\\
-&amp;+ \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{obj}} [(\sqrt{w_i} - \sqrt{\hat{w_j}})^2 + (\sqrt{h_i} - \sqrt{\hat{h_j}})^2]
-\\
-&amp;+ \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{obj}} (C_i - \hat{C_i})^2
-\\
-&amp;+ \lambda_{noobj} \sum_{i=0}^{S^2} \sum_{j=0}^B \mathbb{1}_{ij}^{\text{noobj}} (C_i - \hat{C_i})^2
-\\
-&amp;+ \sum_{i=0}^{S^2} \mathbb{1}_{i}^{\text{obj}} \sum_{c \in \text{classes}} (p_i(c) - \hat{p_i}(c))^2
-\end{align}
-\]</div>
-<ul>
-<li>손실 함수 (Sum of squared error)<ul>
-<li>1번째 항: Box 중심 좌표 오차 최소화</li>
-<li>2번째 항: Box 폭 &amp; 너비 오차 최소화 (절댓값 크기가 영향을 주지 않도록 제곱근 사용)</li>
-<li>3번째 항: 신뢰도 오차 최소화</li>
-<li>4번째 항: 신뢰도 <span class="arithmatex">\(\hat{C_i} \to 0\)</span> 유도 (<span class="arithmatex">\(\because \Pr(\text{Object}) = 0\)</span>)</li>
-<li>5번째 항: 클래스 분류 오차 최소화</li>
-</ul>
-</li>
-<li>조건부 계수<ul>
-<li><span class="arithmatex">\(\mathbf{1}_i^{\text{obj}}\)</span> : i 번째 셀에서 개체가 존재하면 → 1</li>
-<li><span class="arithmatex">\(\mathbf{1}_{ij}^{\text{obj}}\)</span> : i 번째 셀에서 최대 IoU 를 가진 box 가 j 번째일 경우 → 1</li>
-</ul>
-</li>
-<li>손실 패널티 (학습 안정화 목적)<ul>
-<li><span class="arithmatex">\(\lambda_{coord} = 5\)</span><ul>
-<li>Localization 오차 증폭계수</li>
-</ul>
-</li>
-<li><span class="arithmatex">\(\lambda_{noobj} = 0.5\)</span><ul>
-<li>개체가 없는 셀의 오차 감쇄계수</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="_5">추론</h2>
-<p><img alt="yolo_result.png" src="../../../../assets/yolo_result.png" /></p>
+<h3 id="_2">통신모듈 설정</h3>
+<p>K8s 클러스터 내부에서 통신이 가능하려면 리눅스 네트워크 설정을 변경해야 한다.</p>
+<p>먼저 커널 공간에서 패킷을 필터링하는 <code>br_netfilter</code> 모듈을 활성화한다.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>modprobe<span class="w"> </span>br_netfilter
+</span></code></pre></div>
+<p>시스템 재부팅 시 초기화되는 것을 막으려면 <code>modules-load</code> 설정이 필요하다.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cat<span class="w"> </span><span class="s">&lt;&lt;EOF | sudo tee /etc/modules-load.d/k8s.conf</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s">br_netfilter</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="s">EOF</span>
+</span></code></pre></div>
+<p>그리고 커널 브릿지를 통과하는 패킷이 <code>iptables</code> 방화벽도 거치도록 sysctl 설정을 변경한다. </p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cat<span class="w"> </span><span class="s">&lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s">net.bridge.bridge-nf-call-ip6tables = 1</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s">net.bridge.bridge-nf-call-iptables = 1</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s">EOF</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sysctl<span class="w"> </span>--system
+</span></code></pre></div>
+<h3 id="_3">방화벽 설정</h3>
+<p>K8s 컴포넌트가 정상 작동하려면 API 요청이 방화벽에서 차단되지 않도록 포트를 개방해야 한다.</p>
+<p><a href="https://kubernetes.io/docs/reference/networking/ports-and-protocols/">각 프토로콜에 대응하는 포트 번호</a>를 참조하여 클러스터 내부 트래픽이 해당 포트를 사용할 수 있도록 방화벽을 설정하자.</p>
+<h3 id="_4">스왑 메모리 해제</h3>
+<p>리눅스는 기본적으로 메모리의 초과 사용을 대비해서 디스크 공간 일부를 메모리로 사용한다.</p>
+<p>하지만 K8s 자원관리 체계는 스왑 메모리를 고려하지 않고 설계되었기 때문에 <a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#swap-configuration">이 기능을 해제</a>해야 한다.</p>
+<h3 id="kubeadm-cli">kubeadm CLI 설치</h3>
+<p><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl">공식 문서를 참조</a>하여 클러스터를 생성하고 K8s 컴포넌트를 제어하는 명령줄 도구를 설치해보자.</p>
+<p>컨테이너 런타임과 kubelet 이 사용하는 <code>cgroup driver</code>가 일치하는지 반드시 확인해보자.</p>
+<h2 id="_5">클러스터 생성하기</h2>
+<p>Control plane 은 마스터 노드에서 설치해야 한다.</p>
+<p>방화벽 설정에서 Kubernetes API 서버용 포트 6443 이 loopback 에서 개방되었는지 확인해보자.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>nc<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">6443</span><span class="w"> </span>-zv<span class="w"> </span>-w<span class="w"> </span><span class="m">2</span>
+</span></code></pre></div>
+<h3 id="control-plane">Control plane 생성</h3>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>kubeadm<span class="w"> </span>init<span class="w"> </span>--pod-network-cidr<span class="o">=</span><span class="m">10</span>.244.0.0/16<span class="w"> </span>--apiserver-advertise-address<span class="o">=</span>&lt;내부IP&gt;
+</span></code></pre></div>
+<p>위 명령을 실행해서 클러스터 및 control plane 이 성공적으로 생성되면 다음과 같은 문구가 뜬다.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Your Kubernetes control-plane has initialized successfully!
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>...
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>You can now join any number of machines by running the following on each node
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>as root:
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  kubeadm join &lt;control-plane-host&gt;:&lt;control-plane-port&gt; --token &lt;token&gt; --discovery-token-ca-cert-hash sha256:&lt;hash&gt;
+</span></code></pre></div>
+<p>문구 맨 아래에 <code>kubeadm join ...</code> 명령을 복사해서 메모장에 기록해두자. 나중에 worker node 를 생성하고 붙일 때 필요하다.</p>
+<p>이제 kubectl 명령어 접근권한을 취득하기 위해 아래 명령을 입력하자.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$HOME</span>/.kube
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>cp<span class="w"> </span>-i<span class="w"> </span>/etc/kubernetes/admin.conf<span class="w"> </span><span class="nv">$HOME</span>/.kube/config
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sudo<span class="w"> </span>chown<span class="w"> </span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span>:<span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span><span class="nv">$HOME</span>/.kube/config
+</span></code></pre></div>
+<p>kubectl 작동을 확인해보는 차원에서 모든 namespace 공간에 존재하는 Pod 목록을 조회해보자.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>NAMESPACE      NAME                             READY   STATUS    RESTARTS       AGE
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>kube-system    etcd-master                      1/1     Running   5              78m
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>kube-system    kube-apiserver-master            1/1     Running   5              78m
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>kube-system    kube-controller-manager-master   1/1     Running   5              78m
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>kube-system    kube-proxy-gd4da                 1/1     Running   2 (45m ago)    75m
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>kube-system    kube-scheduler-master            1/1     Running   5              78m
+</span></code></pre></div>
+<h3 id="cni">CNI 플러그인 설치</h3>
+<p>클러스터 DNS 를 포함해서 Pod 끼리 통신할 수 있는 네트워크를 구축하려면 CNI(Container Network Interface) 가 필요하다.</p>
+<p>K8s 클러스터와 호환되는 CNI 플러그인 목록은 <a href="https://kubernetes.io/docs/concepts/cluster-administration/addons/#networking-and-network-policy">여기에서 참고</a>.
+필자는 설치 및 관리가 편리한 flannel 플러그인을 선택하겠다.</p>
 <ol>
-<li>클래스별 신뢰도 계산</li>
-<li>NMS 를 수행하여 불필요한 box 제거</li>
-</ol>
-<h2 id="_6">문제점</h2>
-<ul>
-<li>Localization 정확도 낮음</li>
-<li>신뢰도 계산에서 Box 크기를 고려하지 않음<ul>
-<li>작은 개체 탐지 어려움</li>
-</ul>
+<li>flannel 공식 저장소에서 <a href="https://github.com/flannel-io/flannel/blob/master/Documentation/kube-flannel.yml">kube-flannel.yml</a> 파일을 내려받기</li>
+<li><code>kubectl apply -f kube-flannel.yml</code> 을 실행해서 flannel 플러그인 설치</li>
+<li>
+<p>만약 설치후 <code>/run/flannel/subnet.env</code> 파일이 없다면 직접 추가하기</p>
 </li>
+<li>
+<p><code>kubectl get pods -n kube-flannel</code> 을 실행해서 생성된 Pod 확인
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>NAME                    READY   STATUS    RESTARTS       AGE
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>kube-flannel-ds-5sd3d   1/1     Running   0              80m
+</span></code></pre></div></p>
+</li>
+</ol>
+<h4 id="_6">주의사항</h4>
+<ul>
+<li>flannel 설치 후 <code>/run/flannel/subnet.env</code> 파일이 생성되지 않는 경우가 있다. 그렇다면 <a href="https://github.com/flannel-io/flannel/blob/master/dist/sample_subnet.env">직접 생성해야 한다</a>.</li>
+<li>특정 커널 환경에서 VXLAN 패킷의 체크섬이 변질되는 문제가 있다. <a href="https://github.com/flannel-io/flannel/blob/master/Documentation/troubleshooting.md#nat"><code>tx-checksum-ip-generic</code> 옵션을 해제</a>하여 해결할 수 있다.</li>
 </ul>
-<h2 id="yolov2">YOLOv2</h2>
-<p><a href="https://csm-kr.tistory.com/3">[Object Detection] YOLO v2 논문리뷰 및 코드구현(CVPR2017)</a></p>
-<h2 id="yolov3">YOLOv3</h2>
-<p><a href="https://csm-kr.tistory.com/11">[Object Detection] YOLO v3 논문리뷰 및 코드구현</a></p>
-<p><img alt="yolo3_arch.png" src="../../../../assets/yolo3_arch.png" /></p>
+<h3 id="worker-node">Worker node 등록</h3>
+<p>이제 K8s 컨테이너를 실행하는 worker node 컴퓨터에 접속한다.</p>
+<p>이전에 Control plane 만들고 나서 복사했던 명령어를 실행하면 된다. 아래는 예시.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>kubeadm join 192.168.1.11:6443 --token ssakq.03psdfgs4eq31omogi \
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>        --discovery-token-ca-cert-hash sha256:13se53sxd8dnh3k08834ssdsw4e488fbbbf2eebaaf037b2
+</span></code></pre></div>
+<p>등록이 끝났다면 마스터 노드에 접속해서 worker node 가 잘 인식되는지 확인해보자.</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
+</span></code></pre></div>
+<h1 id="troubleshoot">Troubleshoot</h1>
+<h2 id="context-deadline-exceeded">context deadline exceeded</h2>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>manifest.yaml
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Error<span class="w"> </span>from<span class="w"> </span>server<span class="w"> </span><span class="o">(</span>InternalError<span class="o">)</span>:<span class="w"> </span>error<span class="w"> </span>when<span class="w"> </span>creating<span class="w"> </span><span class="s2">&quot;manifest.yaml&quot;</span>:<span class="w"> </span>Internal<span class="w"> </span>error<span class="w"> </span>occurred:
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>failed<span class="w"> </span>calling<span class="w"> </span>webhook<span class="w"> </span><span class="s2">&quot;ipaddresspoolvalidationwebhook.metallb.io&quot;</span>:<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>call<span class="w"> </span>webhook:
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Post<span class="w"> </span><span class="s2">&quot;https://metallb-webhook-service.metallb-system.svc:443/validate-metallb-io-v1beta1-ipaddresspool?timeout=10s&quot;</span>:<span class="w"> </span>context<span class="w"> </span>deadline<span class="w"> </span>exceeded<span class="w"> </span>
+</span></code></pre></div>
+<p>마니페스트를 적용할 때 웹훅 연결이 안되서 리소스 생성에 실패하는 문제를 겪었다.</p>
+<p>클러스터 네트워크를 구현하는 <code>flannel</code> 이 패킷을 전송하는 특정 포트가 있는데, 이게 방화벽에서 차단된 것이었다.</p>
+<p><a href="https://github.com/flannel-io/flannel/blob/master/Documentation/troubleshooting.md#firewalls">공식 문서에서 방화벽 관련 권고사항</a>을 확인하고 방화벽을 수정하여 해결했다.</p>
 
 
 
