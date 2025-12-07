@@ -11,8 +11,6 @@ categories:
 자바스크립트 입문자가 가장 어려워하는 내용으로 `this`를 빼놓을 수 없다.
 함수를 호출하는 시점에 따라 this 키워드가 가리키는 값이 다르기 때문이다.
 
-<!-- more -->
-
 ```js
 const computer = {
     time: 5,
@@ -28,6 +26,8 @@ computer.reboot();  // Rebooting in 5 seconds...
 위 코드에서 this는 익명 함수 안쪽에 있지만, 호출 시점은 코드 맨 마지막 줄 `computer.reboot()` 이다.
 호출 시점에 함수는 `computer` 객체에 포함되므로, `this.time` 표현식은 컴퓨터 객체의 `time: 5` 속성을 가리킨다.
 하지만 화살표 함수를 사용하게 되면 어떨까?
+
+<!-- more -->
 
 ```js
 const computer = {

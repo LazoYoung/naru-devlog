@@ -9,14 +9,14 @@ categories:
 
 ## 개요
 
+![arch.png](../assets/yolo_arch.png)
+
 YOLO 는 신경망 기반 “개체 탐지” 처리 속도를 비약적으로 향상시킨 모델이다. 주어진 이미지에 존재하는 모든 개체의 bounding box와 class probability를 한 큐에 생성하도록 설계되었다. 분류 신경망을 이미지에 국소적으로 적용하던 R-CNN 같은 기존 방식이 가지는 복잡성과 비효율성을 YOLO 모델이 해결하면서 실시간 개체 탐지 기술의 지평선을 열었다.
 
 - Grid: 이미지를 S x S 격자로 쪼갠 것
 - Cell: 격자를 구성하는 단위 셀
 
 <!-- more -->
-
-![arch.png](../assets/yolo_arch.png)
 
 ![process.png](../assets/yolo_process.png)
 
