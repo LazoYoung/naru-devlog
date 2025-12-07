@@ -10,28 +10,29 @@
         <meta name="author" content="Chanyoung &quot;Lazuward&quot; Park">
       
       
-        <link rel="canonical" href="https://blog.flynaru.com/2025/07/23/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EA%B0%9C%EB%B0%9C/">
+        <link rel="canonical" href="https://blog.flynaru.com/2025/12/08/vision-transformer/">
       
       
-        <link rel="prev" href="../../../03/18/faster-r-cnn-with-rpn/">
+        <link rel="prev" href="../../../09/27/kubernetes/">
       
       
-        <link rel="next" href="../../../09/26/%EB%A9%80%ED%8B%B0%EC%BA%90%EC%8A%A4%ED%8A%B8-dns/">
+      
+        
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>인공지능 개발 - NARU Devlog</title>
+        <title>Vision Transformer - NARU Devlog</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.2a3383ac.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -58,7 +59,6 @@
 
     
     
-    
   </head>
   
   
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#vision-transformer" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              인공지능 개발
+              Vision Transformer
             
           </span>
         </div>
@@ -217,9 +217,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -250,9 +255,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Archive
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -261,7 +271,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Archive
+            
+  
+    Archive
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -279,9 +293,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2025
+  
+
     
   </span>
+  
   
 
       </a>
@@ -304,9 +323,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2024
+  
+
     
   </span>
+  
   
 
       </a>
@@ -345,9 +369,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Categories
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -356,7 +385,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Categories
+            
+  
+    Categories
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -374,9 +407,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Computer Science
+  
+
     
   </span>
+  
   
 
       </a>
@@ -399,9 +437,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Computer Vision
+  
+
     
   </span>
+  
   
 
       </a>
@@ -424,9 +467,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     DevOps
+  
+
     
   </span>
+  
   
 
       </a>
@@ -449,9 +497,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Network
+  
+
     
   </span>
+  
   
 
       </a>
@@ -474,9 +527,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Paper Review
+  
+
     
   </span>
+  
   
 
       </a>
@@ -499,9 +557,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Web
+  
+
     
   </span>
+  
   
 
       </a>
@@ -546,46 +609,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#patch-embedding" class="md-nav__link">
     <span class="md-ellipsis">
-      직군 비교
+      
+        Patch Embedding
+      
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="직군 비교">
+    <nav class="md-nav" aria-label="Patch Embedding">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ai-researcher" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      AI Researcher
+      
+        알고리즘
+      
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ml-engineer" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      ML Engineer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-scientist" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Scientist
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-engineer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Engineer
+      
+        수식 모델
+      
     </span>
   </a>
   
@@ -597,9 +648,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mlops" class="md-nav__link">
+  <a href="#inductive-bias" class="md-nav__link">
     <span class="md-ellipsis">
-      MLOps
+      
+        Inductive Bias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
     </span>
   </a>
   
@@ -642,7 +706,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-07-23 00:00:00+00:00" class="md-ellipsis">July 23, 2025</time>
+                        <time datetime="2025-12-08 00:00:00+00:00" class="md-ellipsis">December 8, 2025</time>
                       </div>
                     </li>
                     
@@ -653,7 +717,8 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/computer-science/">Computer Science</a></span>
+                              <a href="../../../../category/computer-vision/">Computer Vision</a>, 
+                              <a href="../../../../category/paper-review/">Paper Review</a></span>
                         </div>
                       </li>
                     
@@ -664,7 +729,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              1 min read
+                              2 min read
                             
                           </span>
                         </div>
@@ -688,36 +753,61 @@
 
 
 
-<h1 id="_1">인공지능 개발</h1>
-<p>인공지능 서비스 개발에 관여하는 직군은 다양하고, 직군별 역할이 기업마다 조금씩 상이하다.</p>
-<p>서비스 개발 관점에서 일반적으로 통용되는 AI 직군별 역할을 정리하면 다음과 같다.</p>
-<h2 id="_2">직군 비교</h2>
-<h3 id="ai-researcher">AI Researcher</h3>
-<ul>
-<li>학회 논문에서 제시된 AI 모델을 재구성하고 실험을 재현</li>
-<li>새로운 모델과 알고리즘을 고안하여 신기술 확보</li>
-</ul>
-<h3 id="ml-engineer">ML Engineer</h3>
-<ul>
-<li>AI 기술을 통해 문제를 해결하는 시스템 전반 설계</li>
-<li>모델의 성능을 검증하고 튜닝을 통해 지속적으로 개선</li>
-</ul>
+<h1 id="vision-transformer">Vision Transformer</h1>
+<blockquote>
+<p>An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
+<img alt="vit.png" src="../../../../assets/vit.png" /></p>
+</blockquote>
+<p>시각적 패턴을 인식하는 합성곱 신경망(CNN)은 컴퓨터비전의 de facto 표준으로 폭넓게 사용되지만,
+데이터에서 의미론적 문맥(semantic context)을 유추하는 학습은 불가능하다.
+반면에 NLP 분야에서 주목받던 Transformer 계열의 추론 성능은 비약적으로 상승했는데,
+학습량이 일정 수준을 넘어서면 모델이 처음 보는 작업에서도 zero-shot 추론이 가능함을 보였다.<br />
+본 논문에서는 이미지 분류용 합성곱 레이어를 Transformer Encoder 로 대체한 새로운 유형의 모델을 제시하는데,
+이는 CV 분야에서 고질적인 이슈로 지적되었던 일반화 성능 문제의 돌파구가 될 것으로 예상한다.</p>
 <!-- more -->
 
-<h3 id="data-scientist">Data Scientist</h3>
+<h2 id="patch-embedding">Patch Embedding</h2>
+<p>ViT 모델은 이미지를 일정 크기의 패치(Patch) 조각으로 분할해서 토큰처럼 취급하기 때문에 기존 Transformer 구조가 그대로 재활용된다.</p>
+<h3 id="_1">알고리즘</h3>
+<ol>
+<li>2차원 이미지를 <span class="arithmatex">\(P \times P\)</span> 해상도를 갖는 <span class="arithmatex">\(N\)</span>개의 패치로 분할하고 각각 D차원 벡터로 임베딩한다</li>
+<li>위치 정보를 반영하는 Positional embedding 을 각각의 패치 벡터에 더한다</li>
+<li>[CLS] 토큰이 맨 앞에 추가된 패치 시퀀스를 조합해서 Encoder 입력으로 밀어넣는다</li>
+</ol>
+<h3 id="_2">수식 모델</h3>
+<div class="arithmatex">\[
+\begin{aligned}
+z_0 &amp;= [x_{\text{class}}; x_p^1 E; x_p^2 E; ...; x_p^N E] + E_{\text{pos}}
+\\
+z' &amp;= MSA(LN(z_{\ell - 1}) + z_{\ell - 1})
+\\
+z_{\ell} &amp;= MLP(LN(z'_{\ell})) + z'_{\ell}
+\\
+y &amp;= LN(z_L^0)
+\\
+\text{where }&amp; E \in \mathbb{R}^{(P^2 \cdot C) \times D}, E_{\text{pos}} \in \mathbb{R}^{(N + 1) \times D}, \ell = 1 ... L
+\end{aligned}
+\]</div>
+<h2 id="inductive-bias">Inductive Bias</h2>
 <ul>
-<li>데이터를 기반으로 의사결정에 필요한 인사이트 도출</li>
-<li>AI 학습에 용이한 형태로 데이터를 가공하여 품질을 확보</li>
+<li>귀납 편향</li>
+<li>관측된 데이터를 일관되게 예측하려면 귀납적 추론으로 형성된 편향치가 요구된다</li>
+<li>일반화 성능은 모델의 귀납 편향이 모집단을 얼마나 반영하는지 평가하는 지표이다 </li>
+<li>귀납 편향이 내제된 모델</li>
+<li>합성곱 레이어의 국소성(spatial locality)</li>
+<li>풀링 레이어의 이동불변성(translation invariance)</li>
+<li>귀납 편향의 부재</li>
+<li>소규모 데이터로 학습된 ViT 성능이 저조한 이유를 논문에서는 "Lack of Inductive Bias" 로 설명한다</li>
+<li>ViT 구조는 CNN 과 다르게 공간적 편향이 내제되지 않아서 순수하게 데이터 분포만으로 학습하게 된다</li>
 </ul>
-<h3 id="data-engineer">Data Engineer</h3>
-<ul>
-<li>데이터 파이프라인 설계 (수집, 정제, 가공 자동화)</li>
-<li>빅데이터 플랫폼 및 인프라 구축</li>
-</ul>
-<h2 id="mlops">MLOps</h2>
-<p><img alt="MLOps" src="../../../../assets/mlops.jpg" /></p>
-<p>MLOps 는 기계학습 실험부터 모델 배포, 유지보수 단계까지 생명주기를 통합하는 개발 프로세스이다.</p>
-<p>소프트웨어 개발과 운영을 하나로 결합하는 DevOps 방법론이 머신러닝에 적용되었다고 볼 수 있다.</p>
+<h2 id="performance">Performance</h2>
+<blockquote>
+<p>논문 결론에서 제시된 실험 결과표
+<img alt="vit_metrics.png" src="../../../../assets/vit_metrics.png" />
+- 사전학습 데이터가 부족하면 일반화 성능이 CNN 보다 떨어진다
+- 하지만 데이터 규모를 늘리면 성능이 역전된다 (JFT 기준 1억장)
+  - 데이터 증강 및 규모 확장이 일반화 성능을 결정짓는 요인</p>
+</blockquote>
 
 
 
@@ -775,10 +865,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
         <script src="../../../../javascripts/katex.js"></script>
       

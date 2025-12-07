@@ -2,94 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://blog.flynaru.com/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/2024/06/24/concurrent-computing/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/2024/06/27/django/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/2025/03/18/faster-r-cnn-with-rpn/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/2024/07/10/javascript/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
-         <loc>https://blog.flynaru.com/2025/09/27/kubernetes-%EC%84%A4%EC%B9%98/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://blog.flynaru.com/2025/07/23/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EA%B0%9C%EB%B0%9C/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <loc>https://blog.flynaru.com/2025/09/27/kubernetes/</loc>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/2025/09/26/%EB%A9%80%ED%8B%B0%EC%BA%90%EC%8A%A4%ED%8A%B8-dns/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/2024/06/24/openmp/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
+    </url>
+    <url>
+         <loc>https://blog.flynaru.com/2025/12/08/vision-transformer/</loc>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/2025/03/18/yolo-you-only-look-once/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/archive/2025/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/archive/2024/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://blog.flynaru.com/category/computer-science/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://blog.flynaru.com/category/devops/</loc>
-         <lastmod>2025-10-14</lastmod>
-    </url>
-    <url>
-         <loc>https://blog.flynaru.com/category/network/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/category/computer-vision/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/category/paper-review/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
+    </url>
+    <url>
+         <loc>https://blog.flynaru.com/category/computer-science/</loc>
+         <lastmod>2025-12-07</lastmod>
+    </url>
+    <url>
+         <loc>https://blog.flynaru.com/category/devops/</loc>
+         <lastmod>2025-12-07</lastmod>
+    </url>
+    <url>
+         <loc>https://blog.flynaru.com/category/network/</loc>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/category/web/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/page/2/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/page/3/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/archive/2025/page/2/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/archive/2024/page/2/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://blog.flynaru.com/category/computer-science/page/2/</loc>
-         <lastmod>2025-10-14</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
 </urlset>

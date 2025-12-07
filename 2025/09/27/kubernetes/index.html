@@ -10,26 +10,31 @@
         <meta name="author" content="Chanyoung &quot;Lazuward&quot; Park">
       
       
-        <link rel="canonical" href="https://blog.flynaru.com/2025/09/27/kubernetes-%EC%84%A4%EC%B9%98/">
+        <link rel="canonical" href="https://blog.flynaru.com/2025/09/27/kubernetes/">
       
       
         <link rel="prev" href="../../26/%EB%A9%80%ED%8B%B0%EC%BA%90%EC%8A%A4%ED%8A%B8-dns/">
       
       
+        <link rel="next" href="../../../12/08/vision-transformer/">
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
-    
-    
-      
-        <title>Kubernetes 설치 - NARU Devlog</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.2a3383ac.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Kubernetes - NARU Devlog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -54,7 +59,6 @@
     
       
 
-    
     
     
   </head>
@@ -109,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kubernetes 설치
+              Kubernetes
             
           </span>
         </div>
@@ -215,9 +219,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -248,9 +257,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Archive
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -259,7 +273,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Archive
+            
+  
+    Archive
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -277,9 +295,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2025
+  
+
     
   </span>
+  
   
 
       </a>
@@ -302,9 +325,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2024
+  
+
     
   </span>
+  
   
 
       </a>
@@ -343,9 +371,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Categories
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -354,7 +387,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Categories
+            
+  
+    Categories
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -372,9 +409,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Computer Science
+  
+
     
   </span>
+  
   
 
       </a>
@@ -397,9 +439,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Computer Vision
+  
+
     
   </span>
+  
   
 
       </a>
@@ -422,9 +469,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     DevOps
+  
+
     
   </span>
+  
   
 
       </a>
@@ -447,9 +499,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Network
+  
+
     
   </span>
+  
   
 
       </a>
@@ -472,9 +529,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Paper Review
+  
+
     
   </span>
+  
   
 
       </a>
@@ -497,9 +559,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Web
+  
+
     
   </span>
+  
   
 
       </a>
@@ -536,131 +603,6 @@
   
     
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      사전 준비단계
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="사전 준비단계">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-engine" class="md-nav__link">
-    <span class="md-ellipsis">
-      Docker Engine 설치
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      통신모듈 설정
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      방화벽 설정
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      스왑 메모리 해제
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubeadm-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      kubeadm CLI 설치
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      클러스터 생성하기
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="클러스터 생성하기">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#control-plane" class="md-nav__link">
-    <span class="md-ellipsis">
-      Control plane 생성
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cni" class="md-nav__link">
-    <span class="md-ellipsis">
-      CNI 플러그인 설치
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CNI 플러그인 설치">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      주의사항
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#worker-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      Worker node 등록
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -720,7 +662,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              3 min read
+                              4 min read
                             
                           </span>
                         </div>
@@ -744,16 +686,29 @@
 
 
 
-<h1 id="kubernetes">Kubernetes 설치</h1>
-<h2 id="_1">사전 준비단계</h2>
+<h1 id="kubernetes">Kubernetes</h1>
+<p><img alt="k8s.svg" src="../../../../assets/k8s.svg" /></p>
+<p>Kubernetes(K8s) 는 컨테이너화된 애플리케이션의 배포, 확장, 관리를 자동화해주는 오픈소스 클러스터 서비스이다.
+구글이 내부적으로 사용하던 Borg 클러스터 설계 노하우를 바탕으로 제작되었으며, 현재는 Container Orchestration 분야의 표준으로 자리잡았다.
+Docker 가 애플리케이션을 "어떻게 배포할 것인지"를 해결했다면, 쿠버네티스는 "수많은 컨테이너를 어떻게 운영하고 자동화할지"를 해결한다.</p>
+<ol>
+<li><strong>자동 회복</strong>: 컨테이너가 다운되거나 응답하지 않을 경우 자동으로 재시작</li>
+<li><strong>로드 밸런싱</strong>: 트래픽을 여러 파드로 분산시켜 안정적인 서비스를 제공</li>
+<li><strong>오토 스케일링</strong>: 자원 사용량에 따라 자동으로 컨테이너 개수를 늘리거나 줄이고 트래픽 요구사항에 대응</li>
+<li><strong>무중단 배포</strong>: 서비스 중단 없이 롤링 업데이트를 진행하고, 문제 발생 시 이전 버전으로 롤백</li>
+</ol>
+<p>무중단 서비스를 운영하거나 규모 있는 개발을 진행한다면 DevOps 와 함께 쿠버네티스 도입을 적극 고려해보자.
+필자는 클러스터를 직접 구축했던 경험을 가이드라인 형태로 공유하고자 한다.</p>
+<!-- more -->
+
+<h1 id="_1">쿠버네티스 설치</h1>
+<h2 id="_2">사전 준비단계</h2>
 <p>사전 준비에 해당되는 내용들은 master node, worker node 에 모두 적용된다.</p>
 <p>쿠버네티스(K8s) 작업을 수행하는 모든 노드에 접속해서 빠짐없이 실행해야 한다!</p>
 <h3 id="docker-engine">Docker Engine 설치</h3>
 <p>먼저 <a href="https://docs.docker.com/engine/install/">Docker 공식문서</a>를 참조하여 도커를 설치한다.</p>
 <p>도커가 설치되면 컨테이너 런타임 <code>Containerd</code> 도 자동으로 설치된다. K8s 가 컨테이너를 관리할 때 이것이 사용된다.</p>
-<!-- more -->
-
-<h3 id="_2">통신모듈 설정</h3>
+<h3 id="_3">통신모듈 설정</h3>
 <p>K8s 클러스터 내부에서 통신이 가능하려면 리눅스 네트워크 설정을 변경해야 한다.</p>
 <p>먼저 커널 공간에서 패킷을 필터링하는 <code>br_netfilter</code> 모듈을 활성화한다.</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>modprobe<span class="w"> </span>br_netfilter
@@ -770,16 +725,16 @@
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s">EOF</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sysctl<span class="w"> </span>--system
 </span></code></pre></div>
-<h3 id="_3">방화벽 설정</h3>
+<h3 id="_4">방화벽 설정</h3>
 <p>K8s 컴포넌트가 정상 작동하려면 API 요청이 방화벽에서 차단되지 않도록 포트를 개방해야 한다.</p>
 <p><a href="https://kubernetes.io/docs/reference/networking/ports-and-protocols/">각 프토로콜에 대응하는 포트 번호</a>를 참조하여 클러스터 내부 트래픽이 해당 포트를 사용할 수 있도록 방화벽을 설정하자.</p>
-<h3 id="_4">스왑 메모리 해제</h3>
+<h3 id="_5">스왑 메모리 해제</h3>
 <p>리눅스는 기본적으로 메모리의 초과 사용을 대비해서 디스크 공간 일부를 메모리로 사용한다.</p>
 <p>하지만 K8s 자원관리 체계는 스왑 메모리를 고려하지 않고 설계되었기 때문에 <a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#swap-configuration">이 기능을 해제</a>해야 한다.</p>
 <h3 id="kubeadm-cli">kubeadm CLI 설치</h3>
 <p><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl">공식 문서를 참조</a>하여 클러스터를 생성하고 K8s 컴포넌트를 제어하는 명령줄 도구를 설치해보자.</p>
 <p>컨테이너 런타임과 kubelet 이 사용하는 <code>cgroup driver</code>가 일치하는지 반드시 확인해보자.</p>
-<h2 id="_5">클러스터 생성하기</h2>
+<h2 id="_6">클러스터 생성하기</h2>
 <p>Control plane 은 마스터 노드에서 설치해야 한다.</p>
 <p>방화벽 설정에서 Kubernetes API 서버용 포트 6443 이 loopback 에서 개방되었는지 확인해보자.</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>nc<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">6443</span><span class="w"> </span>-zv<span class="w"> </span>-w<span class="w"> </span><span class="m">2</span>
@@ -830,7 +785,7 @@
 </span></code></pre></div></p>
 </li>
 </ol>
-<h4 id="_6">주의사항</h4>
+<h4 id="_7">주의사항</h4>
 <ul>
 <li>flannel 설치 후 <code>/run/flannel/subnet.env</code> 파일이 생성되지 않는 경우가 있다. 그렇다면 <a href="https://github.com/flannel-io/flannel/blob/master/dist/sample_subnet.env">직접 생성해야 한다</a>.</li>
 <li>특정 커널 환경에서 VXLAN 패킷의 체크섬이 변질되는 문제가 있다. <a href="https://github.com/flannel-io/flannel/blob/master/Documentation/troubleshooting.md#nat"><code>tx-checksum-ip-generic</code> 옵션을 해제</a>하여 해결할 수 있다.</li>
@@ -912,10 +867,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
         <script src="../../../../javascripts/katex.js"></script>
       

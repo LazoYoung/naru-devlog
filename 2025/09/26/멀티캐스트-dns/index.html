@@ -13,14 +13,17 @@
         <link rel="canonical" href="https://blog.flynaru.com/2025/09/26/%EB%A9%80%ED%8B%B0%EC%BA%90%EC%8A%A4%ED%8A%B8-dns/">
       
       
-        <link rel="prev" href="../../../07/23/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EA%B0%9C%EB%B0%9C/">
+        <link rel="prev" href="../../../03/18/faster-r-cnn-with-rpn/">
       
       
-        <link rel="next" href="../../27/kubernetes-%EC%84%A4%EC%B9%98/">
+        <link rel="next" href="../../27/kubernetes/">
+      
+      
+        
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.2a3383ac.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -56,7 +59,6 @@
     
       
 
-    
     
     
   </head>
@@ -217,9 +219,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -250,9 +257,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Archive
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -261,7 +273,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Archive
+            
+  
+    Archive
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -279,9 +295,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2025
+  
+
     
   </span>
+  
   
 
       </a>
@@ -304,9 +325,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2024
+  
+
     
   </span>
+  
   
 
       </a>
@@ -345,9 +371,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Categories
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -356,7 +387,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Categories
+            
+  
+    Categories
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -374,9 +409,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Computer Science
+  
+
     
   </span>
+  
   
 
       </a>
@@ -399,9 +439,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Computer Vision
+  
+
     
   </span>
+  
   
 
       </a>
@@ -424,9 +469,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     DevOps
+  
+
     
   </span>
+  
   
 
       </a>
@@ -449,9 +499,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Network
+  
+
     
   </span>
+  
   
 
       </a>
@@ -474,9 +529,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Paper Review
+  
+
     
   </span>
+  
   
 
       </a>
@@ -499,9 +559,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Web
+  
+
     
   </span>
+  
   
 
       </a>
@@ -548,7 +613,9 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      동작 원리
+      
+        동작 원리
+      
     </span>
   </a>
   
@@ -558,7 +625,9 @@
           <li class="md-nav__item">
   <a href="#1-query" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 질의 전송 (Query)
+      
+        1. 질의 전송 (Query)
+      
     </span>
   </a>
   
@@ -567,7 +636,9 @@
           <li class="md-nav__item">
   <a href="#2-response" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 응답 (Response)
+      
+        2. 응답 (Response)
+      
     </span>
   </a>
   
@@ -576,7 +647,9 @@
           <li class="md-nav__item">
   <a href="#3-caching" class="md-nav__link">
     <span class="md-ellipsis">
-      3. 캐싱 (Caching)
+      
+        3. 캐싱 (Caching)
+      
     </span>
   </a>
   
@@ -590,7 +663,9 @@
         <li class="md-nav__item">
   <a href="#mdns" class="md-nav__link">
     <span class="md-ellipsis">
-      mDNS 설정하기
+      
+        mDNS 설정하기
+      
     </span>
   </a>
   
@@ -681,30 +756,30 @@
 
 
 <h1 id="dns">멀티캐스트 DNS</h1>
-<p><strong>멀티캐스트 DNS</strong>는 중앙 DNS 서버 없이 로컬 네트워크 환경에서 호스트 이름을 IP 주소로 확인하는 프로토콜이다.</p>
-<p>일반적인 DNS 서버는 FQDN 을 IP 주소로 변환하지만, 멀티캐스트 DNS는 네트워크 안에서 호스트 이름을 IP 주소로 변환한다.</p>
-<p>IETF RFC 6762 로 정의된 기술 규격으로, 별도의 설정 없이 네트워크 장치 간에 호스트 이름을 인식할 수 있다.</p>
-<p>기본적으로 로컬 Link 전용 도메인인 <strong>.local</strong> 로 끝나는 호스트 이름만 확인된다.</p>
+<p><strong>멀티캐스트 DNS</strong>는 중앙 DNS 서버 없이 로컬 네트워크 환경에서 호스트 이름을 IP 주소로 확인하는 프로토콜이다.
+일반적인 DNS 서버는 FQDN 을 IP 주소로 변환하지만, 멀티캐스트 DNS는 네트워크 안에서 호스트 이름을 IP 주소로 변환한다.
+IETF RFC 6762 로 정의된 기술 규격으로, 별도의 설정 없이 네트워크 장치 간에 호스트 이름을 인식할 수 있다.
+기본적으로 로컬 Link 전용 도메인인 <strong>.local</strong> 로 끝나는 호스트 이름만 확인된다.</p>
 <!-- more -->
 
 <h2 id="_1">동작 원리</h2>
 <h3 id="1-query">1. 질의 전송 (Query)</h3>
-<p>IP 주소를 확인하려는 장치(클라이언트)는 원하는 호스트 이름(예: printer.local)에 대한 mDNS 질의 패킷을 보낸다.</p>
-<p>이 질의는 로컬 서브넷 내에서 mDNS 가 활성화된 모든 장치가 수신한다.</p>
+<p>IP 주소를 확인하려는 장치(클라이언트)는 원하는 호스트 이름(예: printer.local)에 대한 mDNS 질의 패킷을 보낸다.
+이 질의는 로컬 서브넷 내에서 mDNS 가 활성화된 모든 장치가 수신한다.</p>
 <h3 id="2-response">2. 응답 (Response)</h3>
-<p>질의를 수신한 장치들은 질의된 호스트 이름을 확인한다.</p>
-<p>해당 이름을 소유한 장치는 자신의 IP 주소를 포함하는 mDNS 응답 패킷을 작성하고,</p>
-<p>다시 멀티캐스트로 전송되어 서브넷 내의 모든 장치에게 자신의 이름-IP 주소 매핑 정보를 알린다.</p>
+<p>질의를 수신한 장치들은 질의된 호스트 이름을 확인한다.
+해당 이름을 소유한 장치는 자신의 IP 주소를 포함하는 mDNS 응답 패킷을 작성하고,
+다시 멀티캐스트로 전송되어 서브넷 내의 모든 장치에게 자신의 이름-IP 주소 매핑 정보를 알린다.</p>
 <h3 id="3-caching">3. 캐싱 (Caching)</h3>
-<p>응답 패킷을 수신한 모든 mDNS 지원 장치들은 해당 이름-IP 매핑 정보를 자체 mDNS 캐시에 저장한다.</p>
-<p>이후 같은 호스트 이름에 대한 질의가 발생하면 캐시된 정보를 사용하여 네트워크 트래픽을 최소화한다.</p>
+<p>응답 패킷을 수신한 모든 mDNS 지원 장치들은 해당 이름-IP 매핑 정보를 자체 mDNS 캐시에 저장한다.
+이후 같은 호스트 이름에 대한 질의가 발생하면 캐시된 정보를 사용하여 네트워크 트래픽을 최소화한다.</p>
 <h2 id="mdns">mDNS 설정하기</h2>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># /etc/systemd/resolved.conf</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">[Resolve]</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">MulticastDNS</span><span class="o">=</span><span class="err">yes</span>
 </span></code></pre></div>
-<p>리눅스에서 DNS resolution 기능은 <code>systemd-resolved</code> 서비스를 통해 제공된다.</p>
-<p>설정 파일은 보통 <code>/etc/systemd/resolved.conf</code> 경로에 위치하는데, 위와 같이 MulticastDNS 를 활성화해야 한다.</p>
+<p>리눅스에서 DNS resolution 기능은 <code>systemd-resolved</code> 서비스를 통해 제공된다.
+설정 파일은 보통 <code>/etc/systemd/resolved.conf</code> 경로에 위치하는데, 위와 같이 MulticastDNS 를 활성화해야 한다.</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-resolved.service
 </span></code></pre></div>
 <p>설정 파일을 저장했다면, 서비스를 재시작하여 변경사항을 적용하자.</p>
@@ -788,10 +863,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
         <script src="../../../../javascripts/katex.js"></script>
       
