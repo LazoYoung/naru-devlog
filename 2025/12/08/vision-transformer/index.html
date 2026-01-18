@@ -758,16 +758,13 @@
 <p>An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale
 <img alt="vit.png" src="../../../../assets/vit.png" /></p>
 </blockquote>
-<p>시각적 패턴을 인식하는 합성곱 신경망(CNN)은 컴퓨터비전의 de facto 표준으로 폭넓게 사용되지만,
-데이터에서 의미론적 문맥(semantic context)을 유추하는 학습은 불가능하다.
-반면에 NLP 분야에서 주목받던 Transformer 계열의 추론 성능은 비약적으로 상승했는데,
-학습량이 일정 수준을 넘어서면 모델이 처음 보는 작업에서도 zero-shot 추론이 가능함을 보였다.<br />
-본 논문에서는 이미지 분류용 합성곱 레이어를 Transformer Encoder 로 대체한 새로운 유형의 모델을 제시하는데,
-이는 CV 분야에서 고질적인 이슈로 지적되었던 일반화 성능 문제의 돌파구가 될 것으로 예상한다.</p>
+<p>Transformer 모델은 토큰의 유사도를 비교하는 self-attention 구조의 유연성 덕분에 높은 수준의 task-agnostic performance 를 보여주었다.
+또한 학습에 사용되는 데이터 규모가 일정 수준을 넘어서면 downstream task 에서도 일관된 성능을 보이는 zero-shot learning 현상이 감지되기도 한다.
+본 논문의 저자들은 Patch embedding 기법을 고안해서 Transformer 인코더 구조에 어떠한 변형도 가하지 않고 비전 인식 분류 문제에 적용하는 기발한 아이디어를 제시한다.</p>
 <!-- more -->
 
 <h2 id="patch-embedding">Patch Embedding</h2>
-<p>ViT 모델은 이미지를 일정 크기의 패치(Patch) 조각으로 분할해서 토큰처럼 취급하기 때문에 기존 Transformer 구조가 그대로 재활용된다.</p>
+<p>이미지를 일정 크기의 패치(Patch) 조각으로 분할해서 Transformer 인코더의 입력 토큰으로 취급하는 기법이다.</p>
 <h3 id="_1">알고리즘</h3>
 <ol>
 <li>2차원 이미지를 <span class="arithmatex">\(P \times P\)</span> 해상도의 패치 <span class="arithmatex">\(N\)</span>개로 분할하고 각각 D차원 벡터로 임베딩한다</li>
@@ -812,11 +809,9 @@ y &amp;= LN(z_L^0)
 <img alt="vit_metrics.png" src="../../../../assets/vit_metrics.png" /></p>
 </blockquote>
 <ul>
-<li>사전학습 데이터가 부족하면 일반화 성능이 CNN 보다 떨어진다</li>
-<li>하지만 데이터 규모를 늘리면 성능이 역전된다 (JFT 기준 1억장)<ul>
-<li>데이터 증강 및 규모 확장이 일반화 성능을 결정짓는 요인</li>
-</ul>
-</li>
+<li>ImageNet 130만 장을 학습한 ViT 모델은 ResNet (BiT) 보다 낮은 성능을 보인다</li>
+<li>JFT 이미지 3억 장을 학습한 ViT 모델은 ResNet 보다 높은 성능을 보인다</li>
+<li>LLM 분야에서 발견된 스케일링 법칙이 비전 인식에서도 관측될 수 있음을 보여주는 실험</li>
 </ul>
 
 
